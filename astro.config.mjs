@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from "@astrojs/cloudflare";
+
 // Dominio final del sitio. Cuando se apunten los DNS a Cloudflare Pages,
 // este valor genera correctamente el sitemap y las URLs canónicas / Open Graph.
 const SITE = 'https://apuntesdesebas.blog';
@@ -10,4 +12,5 @@ const SITE = 'https://apuntesdesebas.blog';
 export default defineConfig({
   site: SITE,
   integrations: [sitemap()],
+  adapter: cloudflare()
 });
