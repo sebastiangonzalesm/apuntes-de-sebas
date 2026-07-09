@@ -1,0 +1,196 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { cursos, aSlug } from '../../data/cursos';
+
+export function getStaticPaths() {
+  return cursos.map((curso) => ({
+    params: { slug: curso.slug },
+    props: { curso },
+  }));
+}
+
+const { curso } = Astro.props;
+const profesorSlug = aSlug(curso.profesor);
+const tieneProfesor = curso.profesor && !/por confirmar/i.test(curso.profesor);
+const driveListo = curso.drive && !/placeholder/i.test(curso.drive);
+
+// Texto legible sobre el color de fondo.
+const hex = curso.color.replace('#', '');
+const lum =
+  (0.299 * parseInt(hex.slice(0, 2), 16) +
+    0.587 * parseInt(hex.slice(2, 4), 16) +
+    0.114 * parseInt(hex.slice(4, 6), 16)) /
+  255;
+const colorTexto = lum > 0.6 ? '#4A2E08' : '#FFFFFF';
+---
+
+<Base
+  titulo={curso.titulo}
+  descripcion={`Apuntes de ${curso.titulo} (${curso.area}) — ${curso.universidad}. Tips para el curso y acceso directo a la carpeta de Drive.`}
+>
+  <article>
+    <!-- Cabecera del curso -->
+    <header class="curso-hero" style={`--fondo:${curso.color}; --texto:${colorTexto};`}>
+      <div class="contenedor curso-hero__inner">
+        <a class="curso-hero__volver" href="/apuntes">
+          <Icon name="arrow-left" size={18} /> Volver a la biblioteca
+        </a>
+        <span class="curso-hero__icono" aria-hidden="true">
+          <Icon name={curso.icono} size={44} />
+        </span>
+        <p class="curso-hero__area">{curso.area}</p>
+        <h1 class="curso-hero__titulo">{curso.titulo}</h1>
+        <ul class="curso-hero__meta">
+          <li><Icon name="calendar" size={16} /> {curso.ciclo}</li>
+          <li><Icon name="building" size={16} /> {curso.universidad}</li>
+          {tieneProfesor && (
+            <li>
+              <Icon name="users" size={16} />
+              <a href={`/profesores/${profesorSlug}`}>{curso.profesor}</a>
+            </li>
+          )}
+        </ul>
+      </div>
+    </header>
+
+    <div class="contenedor curso-cuerpo">
+      <!-- Tips -->
+      {curso.tips.length > 0 && (
+        <section class="curso-tips">
+          <h2>Para sobrevivirlo felizmente 🛟</h2>
+          <ul>
+            {curso.tips.map((tip) => (
+              <li>
+                <span class="curso-tips__check" aria-hidden="true">
+                  <Icon name="check" size={16} />
+                </span>
+                {tip}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <!-- Acceso a Drive -->
+      <aside class="curso-drive">
+        <h2 class="curso-drive__titulo">Los apuntes 📂</h2>
+        <p class="curso-drive__texto">
+          Todo el material de {curso.titulo} vive en una carpeta de Google Drive.
+          Un clic y estás dentro.
+        </p>
+        {driveListo ? (
+          <a class="boton boton--primario curso-drive__boton" href={curso.drive} target="_blank" rel="noopener">
+            <Icon name="brand-google-drive" size={20} /> Abrir en Drive
+          </a>
+        ) : (
+          <p class="curso-drive__pendiente">
+            📌 Carpeta en preparación. ¡Pronto estará lista!
+          </p>
+        )}
+      </aside>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .curso-hero {
+    background: var(--fondo);
+    color: var(--texto);
+    padding-block: clamp(2rem, 6vw, 3.5rem);
+  }
+  .curso-hero__inner { position: relative; }
+  .curso-hero__volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--texto);
+    opacity: 0.85;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .curso-hero__volver:hover { color: var(--texto); opacity: 1; }
+  .curso-hero__icono {
+    display: grid;
+    place-items: center;
+    width: 78px;
+    height: 78px;
+    border-radius: var(--radio-lg);
+    background: rgba(255, 255, 255, 0.22);
+    margin-bottom: 1rem;
+  }
+  .curso-hero__area {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.85;
+    margin: 0 0 0.3rem;
+  }
+  .curso-hero__titulo { color: var(--texto); margin: 0; }
+  .curso-hero__meta {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding: 0;
+    margin: 1.2rem 0 0;
+    font-size: 0.95rem;
+  }
+  .curso-hero__meta li { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .curso-hero__meta a { color: var(--texto); text-decoration: underline; }
+
+  .curso-cuerpo {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2.5rem;
+    padding-block: var(--espacio-seccion);
+    align-items: start;
+  }
+  .curso-tips h2 { margin-bottom: 1.2rem; }
+  .curso-tips ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem; }
+  .curso-tips li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    background: var(--color-crema);
+    padding: 1rem 1.2rem;
+    border-radius: var(--radio-md);
+  }
+  .curso-tips__check {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--color-naranja);
+    color: var(--color-ambar-oscuro);
+    margin-top: 2px;
+  }
+
+  .curso-drive {
+    background: var(--color-crema);
+    border-radius: var(--radio-lg);
+    padding: 1.8rem;
+    position: sticky;
+    top: 88px;
+  }
+  .curso-drive__titulo { margin-bottom: 0.5rem; }
+  .curso-drive__texto { color: var(--text-secundario); font-size: 0.95rem; }
+  .curso-drive__boton { width: 100%; justify-content: center; margin-top: 0.5rem; }
+  .curso-drive__pendiente {
+    margin: 0.5rem 0 0;
+    padding: 0.9rem 1rem;
+    background: var(--color-crema-tarjeta);
+    border-radius: var(--radio-md);
+    font-size: 0.95rem;
+    color: var(--color-ambar-oscuro);
+  }
+
+  @media (max-width: 720px) {
+    .curso-cuerpo { grid-template-columns: 1fr; gap: 2rem; }
+    .curso-drive { position: static; }
+  }
+</style>

@@ -1,0 +1,193 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('consejos', ({ data }) => !data.borrador)).sort(
+  (a, b) => b.data.fecha.getTime() - a.data.fecha.getTime()
+);
+
+const categorias = [...new Set(posts.map((p) => p.data.categoria))].sort((a, b) =>
+  a.localeCompare(b, 'es')
+);
+
+const fmt = new Intl.DateTimeFormat('es-PE', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Base
+  titulo="Consejos"
+  descripcion="El blog de Apuntes de Sebas: productividad, métodos de estudio, oratoria, liderazgo y todo lo que ojalá alguien me hubiera dicho antes."
+>
+  <section class="cabecera">
+    <div class="contenedor">
+      <p class="eyebrow">El blog</p>
+      <h1>Consejos 💡</h1>
+      <p class="cabecera__sub">
+        Todo lo que ojalá alguien me hubiera dicho antes. Sin acartonar, lo prometo.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      {posts.length > 0 ? (
+        <>
+          {categorias.length > 1 && (
+            <div class="filtros" role="group" aria-label="Filtrar por categoría">
+              <button class="chip chip--activo" type="button" data-cat="">Todo</button>
+              {categorias.map((cat) => (
+                <button class="chip" type="button" data-cat={cat}>{cat}</button>
+              ))}
+            </div>
+          )}
+
+          <ul class="posts-grid" id="posts-grid">
+            {posts.map((post) => (
+              <li data-cat={post.data.categoria}>
+                <a class="post-card" href={`/consejos/${post.id}`}>
+                  <span class="post-card__emoji" aria-hidden="true">{post.data.emoji}</span>
+                  <span class="post-card__cat">{post.data.categoria}</span>
+                  <span class="post-card__titulo">{post.data.titulo}</span>
+                  <span class="post-card__resumen">{post.data.resumen}</span>
+                  <span class="post-card__pie">
+                    <time datetime={post.data.fecha.toISOString()}>
+                      {fmt.format(post.data.fecha)}
+                    </time>
+                    <span class="post-card__leer">
+                      Leer <Icon name="arrow-right" size={16} />
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <p class="sin-resultados" id="sin-resultados" hidden>
+            Nada por aquí todavía en esa categoría 🙈
+          </p>
+        </>
+      ) : (
+        <p class="pendiente">
+          Estoy escribiendo los primeros consejos ✍️ ¡Vuelve prontito!
+        </p>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .cabecera {
+    background: var(--color-crema);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+  }
+  .cabecera__sub { color: var(--text-secundario); margin: 0; font-size: 1.05rem; }
+
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .chip {
+    font-family: var(--font-cuerpo);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radio-pildora);
+    border: 1px solid rgba(43, 42, 38, 0.12);
+    background: #fff;
+    color: var(--text-secundario);
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: all var(--transicion);
+  }
+  .chip:hover { border-color: var(--brand); color: var(--text); }
+  .chip--activo {
+    background: var(--color-naranja);
+    border-color: var(--color-naranja);
+    color: var(--color-ambar-oscuro);
+  }
+
+  .posts-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .posts-grid li[hidden] { display: none; }
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    padding: 1.6rem;
+    background: #fff;
+    border: 1px solid rgba(43, 42, 38, 0.08);
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-sm);
+    color: var(--text);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+  }
+  .post-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-md); color: var(--text); }
+  .post-card__emoji { font-size: 2.2rem; line-height: 1; }
+  .post-card__cat {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brand-acento);
+  }
+  .post-card__titulo { font-family: var(--font-titulos); font-size: 1.35rem; line-height: 1.2; }
+  .post-card__resumen { color: var(--text-secundario); font-size: 0.95rem; }
+  .post-card__pie {
+    margin-top: auto;
+    padding-top: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-tenue);
+  }
+  .post-card__leer {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 500;
+    color: var(--brand-acento);
+  }
+
+  .sin-resultados, .pendiente {
+    text-align: center;
+    color: var(--text-secundario);
+    font-size: 1.1rem;
+  }
+</style>
+
+<script>
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'));
+  const items = Array.from(document.querySelectorAll<HTMLLIElement>('#posts-grid > li'));
+  const sinResultados = document.getElementById('sin-resultados');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('chip--activo'));
+      chip.classList.add('chip--activo');
+      const cat = chip.dataset.cat ?? '';
+      let visibles = 0;
+      for (const li of items) {
+        const mostrar = cat === '' || li.dataset.cat === cat;
+        li.hidden = !mostrar;
+        if (mostrar) visibles++;
+      }
+      if (sinResultados) sinResultados.hidden = visibles !== 0;
+    });
+  });
+</script>

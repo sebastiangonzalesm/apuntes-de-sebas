@@ -1,0 +1,146 @@
+---
+import { SITE, NAV, CONTACTO } from '../config';
+import Icon from './Icon.astro';
+
+const anio = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="contenedor footer__inner">
+    <div class="footer__marca">
+      <a href="/" class="footer__logo" aria-label={`${SITE.nombre} — inicio`}>
+        <img src="/logo.svg" alt="" width="44" height="44" />
+        <span>Apuntes de Sebas</span>
+      </a>
+      <p class="footer__lema">Conecta · Crea · Cambia</p>
+      <p class="footer__nota">
+        Apuntes de clase + consejos = estudiante empoderad@ 🙌
+      </p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Enlaces del sitio">
+      <h2 class="footer__titulo">El sitio</h2>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        {NAV.map((item) => (<li><a href={item.href}>{item.label}</a></li>))}
+        <li><a href="/profesores">Profesores</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__contacto">
+      <h2 class="footer__titulo">Conversemos</h2>
+      <ul>
+        {CONTACTO.email && (
+          <li>
+            <a href={`mailto:${CONTACTO.email}`}>
+              <Icon name="mail" size={18} /> {CONTACTO.email}
+            </a>
+          </li>
+        )}
+        {CONTACTO.instagram && (
+          <li>
+            <a href={CONTACTO.instagram} target="_blank" rel="noopener">
+              <Icon name="brand-instagram" size={18} /> Instagram
+            </a>
+          </li>
+        )}
+        {CONTACTO.linkedin && (
+          <li>
+            <a href={CONTACTO.linkedin} target="_blank" rel="noopener">
+              <Icon name="brand-linkedin" size={18} /> LinkedIn
+            </a>
+          </li>
+        )}
+      </ul>
+    </div>
+  </div>
+
+  <div class="contenedor footer__base">
+    <p>© {anio} {SITE.nombre}. Hecho con cariño en Lima 🇵🇪</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-tinta);
+    color: rgba(255, 255, 255, 0.82);
+    margin-top: var(--espacio-seccion);
+  }
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 2.5rem;
+    padding-block: 3.5rem 2.5rem;
+  }
+  .footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #fff;
+    font-family: var(--font-titulos);
+    font-size: 1.2rem;
+  }
+  .footer__logo img {
+    border-radius: 50%;
+  }
+  .footer__lema {
+    margin: 1rem 0 0.4rem;
+    font-weight: 500;
+    color: var(--color-naranja);
+    letter-spacing: 0.04em;
+    font-size: 0.9rem;
+  }
+  .footer__nota {
+    margin: 0;
+    max-width: 32ch;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+  }
+  .footer__titulo {
+    font-family: var(--font-cuerpo);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 1rem;
+  }
+  .footer__nav ul,
+  .footer__contacto ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .footer__nav a,
+  .footer__contacto a {
+    color: rgba(255, 255, 255, 0.82);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .footer__nav a:hover,
+  .footer__contacto a:hover {
+    color: var(--color-naranja);
+  }
+  .footer__base {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-block: 1.5rem;
+  }
+  .footer__base p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  @media (max-width: 720px) {
+    .footer__inner {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer__marca {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

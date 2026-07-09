@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Base titulo="Página no encontrada">
+  <section class="notfound">
+    <div class="contenedor">
+      <span class="notfound__emoji" aria-hidden="true">🙈</span>
+      <h1>Uy, esta página se nos perdió</h1>
+      <p>
+        No encontré lo que buscabas… y eso que soy mejor que Google 😎
+        Volvamos a lo seguro.
+      </p>
+      <div class="notfound__acciones">
+        <a class="boton boton--primario" href="/">
+          <Icon name="arrow-left" size={18} /> Ir al inicio
+        </a>
+        <a class="boton boton--contorno" href="/apuntes">Ver los apuntes</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    text-align: center;
+    padding-block: clamp(3.5rem, 10vw, 6rem);
+  }
+  .notfound__emoji { font-size: 4rem; display: block; margin-bottom: 1rem; }
+  .notfound p { color: var(--text-secundario); max-width: 44ch; margin-inline: auto; }
+  .notfound__acciones {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+</style>

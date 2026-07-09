@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Apuntes de Sebas — Design tokens y estilos base
+   Dirección visual: PLAYFUL & JOY. Naranja protagonista, bordes redondeados,
+   tipografía cálida. Mantenible a 10 años: todo el sistema vive aquí.
+   ========================================================================== */
+
+/* Fuentes self-host (sin depender de Google en runtime).
+   Fraunces para títulos (variable), Inter para cuerpo/UI (solo 400 y 500). */
+@import '@fontsource-variable/fraunces';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+
+:root {
+  /* --- Paleta de marca (valores exactos del brief) --- */
+  --color-naranja: #F5A623;      /* protagonista */
+  --color-ambar: #D97706;        /* ámbar hondo: acentos, texto sobre naranja */
+  --color-ambar-oscuro: #4A2E08; /* texto sobre naranja claro */
+  --color-tinta: #2B2A26;        /* reemplaza al negro puro, más cálido */
+  --color-crema: #FDF6EC;        /* fondo cálido de secciones */
+  --color-crema-tarjeta: #FDF0DB;/* fondos de íconos / tarjetas */
+  --color-gris: #5F5E5A;         /* texto secundario */
+  --color-gris-tenue: #888780;   /* texto tenue */
+  --color-blanco: #FFFFFF;
+
+  /* --- Roles semánticos --- */
+  --bg: var(--color-blanco);
+  --bg-crema: var(--color-crema);
+  --bg-tinta: var(--color-tinta);
+  --text: var(--color-tinta);
+  --text-secundario: var(--color-gris);
+  --text-tenue: var(--color-gris-tenue);
+  --brand: var(--color-naranja);
+  --brand-acento: var(--color-ambar);
+
+  /* --- Tipografía --- */
+  --font-titulos: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-cuerpo: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* --- Radios generosos (bordes redondeados y suaves) --- */
+  --radio-sm: 10px;
+  --radio-md: 16px;
+  --radio-lg: 24px;
+  --radio-xl: 32px;
+  --radio-pildora: 999px;
+
+  /* --- Sombras suaves y cálidas --- */
+  --sombra-sm: 0 2px 8px rgba(43, 42, 38, 0.06);
+  --sombra-md: 0 8px 24px rgba(43, 42, 38, 0.08);
+  --sombra-lg: 0 16px 40px rgba(43, 42, 38, 0.10);
+
+  /* --- Layout --- */
+  --ancho-max: 1120px;
+  --espacio-seccion: clamp(3.5rem, 8vw, 6rem);
+
+  /* --- Transiciones --- */
+  --transicion: 0.2s ease;
+}
+
+/* --------------------------- Reset ligero --------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-cuerpo);
+  font-weight: 400;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* --------------------------- Tipografía --------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-titulos);
+  font-weight: 500;      /* Fraunces weight 500, según brief */
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--brand-acento);
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+a:hover { color: var(--color-ambar-oscuro); }
+
+/* Nunca weights 600/700 en Inter: los bold del navegador bajan a 500 */
+strong, b { font-weight: 500; }
+
+/* --------------------------- Utilidades de layout --------------------------- */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+.seccion {
+  padding-block: var(--espacio-seccion);
+}
+
+.eyebrow {
+  font-family: var(--font-cuerpo);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-acento);
+  margin: 0 0 0.75rem;
+}
+
+/* --------------------------- Botones y píldoras --------------------------- */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-cuerpo);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radio-pildora);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transicion), box-shadow var(--transicion),
+    background var(--transicion), color var(--transicion), border-color var(--transicion);
+  line-height: 1;
+}
+.boton:hover { transform: translateY(-2px); }
+
+.boton--primario {
+  background: var(--brand);
+  color: var(--color-ambar-oscuro);
+  box-shadow: var(--sombra-sm);
+}
+.boton--primario:hover {
+  background: var(--color-ambar);
+  color: var(--color-blanco);
+  box-shadow: var(--sombra-md);
+}
+
+.boton--claro {
+  background: var(--color-blanco);
+  color: var(--color-tinta);
+  box-shadow: var(--sombra-sm);
+}
+.boton--claro:hover { color: var(--color-tinta); box-shadow: var(--sombra-md); }
+
+.boton--contorno {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(43, 42, 38, 0.15);
+}
+.boton--contorno:hover { border-color: var(--brand); color: var(--brand-acento); }
+
+/* Píldora / badge */
+.pildora {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radio-pildora);
+  background: var(--color-crema-tarjeta);
+  color: var(--color-ambar-oscuro);
+}
+
+/* --------------------------- Accesibilidad --------------------------- */
+:focus-visible {
+  outline: 3px solid var(--brand-acento);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.saltar-al-contenido {
+  position: absolute;
+  left: -9999px;
+  top: 0.5rem;
+  background: var(--color-tinta);
+  color: var(--color-blanco);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radio-sm);
+  z-index: 200;
+}
+.saltar-al-contenido:focus {
+  left: 0.5rem;
+  color: var(--color-blanco);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respetar preferencia de menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,434 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PasameLaVoz from '../components/PasameLaVoz.astro';
+import { testimoniosPublicables } from '../data/testimonios';
+
+const pilares = [
+  {
+    emoji: '🗂️',
+    titulo: 'Todo ordenadito',
+    texto: 'Por curso y por profe, cero caos. Encuentras lo que buscas sin perderte entre links (esta vez sí 😅).',
+  },
+  {
+    emoji: '🤝',
+    titulo: 'Comunidad chévere',
+    texto: 'Aprendemos compartiendo. Los mejores apuntes salen cuando nos pasamos la voz entre patas.',
+  },
+  {
+    emoji: '🛟',
+    titulo: 'Tu salvavidas',
+    texto: 'Cuando más lo necesitas: antes de sufrir en exámenes, ahí va a estar este rinconcito.',
+  },
+];
+
+// Emojis decorativos que flotan sutilmente en el hero.
+const emojisHero = ['✏️', '📚', '⭐', '🎓'];
+---
+
+<Base>
+  <!-- ============================ 1. HERO ============================ -->
+  <section class="hero">
+    <div class="hero__emojis" aria-hidden="true">
+      {emojisHero.map((e, i) => (
+        <span class={`hero__emoji hero__emoji--${i}`}>{e}</span>
+      ))}
+    </div>
+
+    <div class="contenedor hero__inner">
+      <p class="hero__eyebrow">Conecta · Crea · Cambia</p>
+      <h1 class="hero__titulo">Todos mis apuntes, en un solo lugar ✨</h1>
+      <p class="hero__subtitulo">
+        Estudiar ya no tiene por qué ser un drama 🙌 Apuntes de clase
+        <strong> + </strong> consejos <strong> = </strong> estudiante empoderad@.
+      </p>
+
+      <!-- LAS DOS PUERTAS -->
+      <div class="puertas">
+        <a class="puerta puerta--apuntes" href="/apuntes">
+          <span class="puerta__emoji" aria-hidden="true">📚</span>
+          <span class="puerta__titulo">Apuntes</span>
+          <span class="puerta__texto">
+            La biblioteca completa, curso por curso. Con sus links a Drive.
+          </span>
+          <span class="puerta__cta">
+            Explorar la biblioteca <Icon name="arrow-right" size={18} />
+          </span>
+        </a>
+
+        <a class="puerta puerta--consejos" href="/consejos">
+          <span class="puerta__emoji" aria-hidden="true">💡</span>
+          <span class="puerta__titulo">Consejos</span>
+          <span class="puerta__texto">
+            Todo lo que ojalá alguien me hubiera dicho antes. Sin acartonar.
+          </span>
+          <span class="puerta__cta">
+            Leer el blog <Icon name="arrow-right" size={18} />
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. LO QUE NOS HACE ÚNICOS ==================== -->
+  <section class="seccion pilares">
+    <div class="contenedor">
+      <header class="seccion-cabecera">
+        <h2>Lo que nos hace únicos ✨</h2>
+        <p class="seccion-cabecera__sub">
+          Un pata que te quiere ayudar, no una institución.
+        </p>
+      </header>
+      <ul class="pilares__grid">
+        {pilares.map((p) => (
+          <li class="pilar">
+            <span class="pilar__emoji" aria-hidden="true">{p.emoji}</span>
+            <h3 class="pilar__titulo">{p.titulo}</h3>
+            <p class="pilar__texto">{p.texto}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================= 3. SOBRE MÍ ========================= -->
+  <section class="seccion sobre" id="sobre">
+    <div class="contenedor sobre__inner">
+      <div class="sobre__avatar" aria-hidden="true">
+        <!-- PLACEHOLDER del Bitmoji del usuario. Reemplazar /sebas-bitmoji.png
+             cuando lo entregue. Mientras tanto, un saludo con actitud. -->
+        <span class="sobre__wave">👋</span>
+      </div>
+      <div class="sobre__texto">
+        <h2>¡Hola! Soy Sebas 👋</h2>
+        <p>
+          Abogado por la Universidad del Pacífico y, ahora mismo,
+          sobreviviendo felizmente al MBA. Me muevo entre LegalTech, Legal Design
+          y productividad, y soy el fundador de Apuntes de Sebas 🚀
+        </p>
+        <p>
+          Empecé esto en 2018 porque odiaba ver a mis patas sufriendo por no
+          encontrar buen material. Aquí junté todo lo que a mí me hubiera
+          encantado tener: apuntes ordenados y consejos honestos.
+        </p>
+        <a class="boton boton--contorno" href="/sobre-mi">
+          Conóceme mejor <Icon name="arrow-right" size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 4. TESTIMONIOS ======================= -->
+  <section class="seccion testimonios">
+    <div class="contenedor">
+      <header class="seccion-cabecera">
+        <h2>Por si no te convences 😤</h2>
+        <p class="seccion-cabecera__sub">Lo que dicen quienes ya cayeron por aquí.</p>
+      </header>
+
+      {testimoniosPublicables.length > 0 ? (
+        <ul class="testimonios__grid">
+          {testimoniosPublicables.map((t) => (
+            <li class="testimonio">
+              <p class="testimonio__cita">“{t.cita}”</p>
+              <p class="testimonio__autor">
+                <span class="testimonio__nombre">{t.nombre}</span>
+                <span class="testimonio__rol">{t.rol}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <!-- Sin testimonios con texto real todavía. Nunca se inventan citas:
+             aparecerán aquí en cuanto el usuario pegue las palabras reales en
+             src/data/testimonios.ts. -->
+        <p class="testimonios__pendiente">
+          Muy pronto, las palabras de quienes ya estudiaron sin dramas por aquí 💛
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- ======================== 5. COMUNIDAD ======================== -->
+  <section class="comunidad">
+    <div class="comunidad__emojis" aria-hidden="true">
+      <span class="comunidad__emoji comunidad__emoji--0">✨</span>
+      <span class="comunidad__emoji comunidad__emoji--1">❤️</span>
+    </div>
+    <div class="contenedor comunidad__inner">
+      <h2 class="comunidad__titulo">¿Tienes apuntes buenos? Compártelos ❤️</h2>
+      <p class="comunidad__texto">
+        Esto crece cuando nos pasamos la voz. Si tienes material que rompe 🔥,
+        cuéntame por el formulario. Reviso todo antes de publicar para que la
+        biblioteca siga siendo de calidad.
+      </p>
+      <PasameLaVoz clase="boton boton--primario comunidad__boton" />
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* --------------------------- HERO --------------------------- */
+  .hero {
+    position: relative;
+    background: var(--color-naranja);
+    color: var(--color-ambar-oscuro);
+    overflow: hidden;
+    padding-block: clamp(3.5rem, 9vw, 6.5rem);
+  }
+  .hero__inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .hero__eyebrow {
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--color-ambar-oscuro);
+    opacity: 0.75;
+    margin: 0 0 1rem;
+  }
+  .hero__titulo {
+    font-size: clamp(2.4rem, 6.5vw, 4rem);
+    max-width: 16ch;
+    margin-inline: auto;
+    color: var(--color-ambar-oscuro);
+  }
+  .hero__subtitulo {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    max-width: 46ch;
+    margin: 1.2rem auto 0;
+    color: var(--color-ambar-oscuro);
+    opacity: 0.9;
+  }
+  .hero__subtitulo strong {
+    color: #fff;
+  }
+
+  /* Emojis flotantes decorativos */
+  .hero__emojis {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .hero__emoji {
+    position: absolute;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    opacity: 0.55;
+    animation: flotar 6s ease-in-out infinite;
+  }
+  .hero__emoji--0 { top: 16%; left: 8%; animation-delay: 0s; }
+  .hero__emoji--1 { top: 24%; right: 10%; animation-delay: 1.2s; }
+  .hero__emoji--2 { bottom: 30%; left: 13%; animation-delay: 0.6s; }
+  .hero__emoji--3 { bottom: 18%; right: 14%; animation-delay: 1.8s; }
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+  }
+
+  /* --------------------------- PUERTAS --------------------------- */
+  .puertas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    text-align: left;
+  }
+  .puerta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    background: #fff;
+    border-radius: var(--radio-xl);
+    box-shadow: var(--sombra-md);
+    color: var(--text);
+    transition: transform var(--transicion), box-shadow var(--transicion);
+  }
+  .puerta:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-lg);
+    color: var(--text);
+  }
+  .puerta__emoji {
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+  .puerta__titulo {
+    font-family: var(--font-titulos);
+    font-size: 1.9rem;
+  }
+  .puerta__texto {
+    color: var(--text-secundario);
+    font-size: 1rem;
+  }
+  .puerta__cta {
+    margin-top: auto;
+    padding-top: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 500;
+    color: var(--brand-acento);
+  }
+  .puerta:hover .puerta__cta {
+    color: var(--color-ambar-oscuro);
+  }
+
+  /* --------------------- CABECERAS DE SECCIÓN --------------------- */
+  .seccion-cabecera {
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  .seccion-cabecera__sub {
+    color: var(--text-secundario);
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  /* --------------------------- PILARES --------------------------- */
+  .pilares__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .pilar {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--color-crema);
+    border-radius: var(--radio-lg);
+  }
+  .pilar__emoji {
+    display: grid;
+    place-items: center;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 1.1rem;
+    font-size: 2.6rem;
+    background: var(--color-crema-tarjeta);
+    border-radius: 50%;
+  }
+  .pilar__titulo {
+    margin-bottom: 0.4rem;
+  }
+  .pilar__texto {
+    color: var(--text-secundario);
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  /* --------------------------- SOBRE MÍ --------------------------- */
+  .sobre {
+    background: var(--color-crema);
+  }
+  .sobre__inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+  }
+  .sobre__avatar {
+    flex: none;
+    width: clamp(120px, 20vw, 190px);
+    height: clamp(120px, 20vw, 190px);
+    display: grid;
+    place-items: center;
+    background: var(--color-crema-tarjeta);
+    border-radius: 50%;
+    box-shadow: var(--sombra-sm);
+  }
+  .sobre__wave {
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    animation: saludar 2.4s ease-in-out 1;
+    transform-origin: 70% 70%;
+  }
+  @keyframes saludar {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20%, 40% { transform: rotate(-8deg); }
+  }
+  .sobre__texto h2 { margin-bottom: 0.6rem; }
+  .sobre__texto p { color: var(--text-secundario); }
+  .sobre__texto .boton { margin-top: 0.5rem; }
+
+  /* --------------------------- TESTIMONIOS --------------------------- */
+  .testimonios__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .testimonio {
+    padding: 1.8rem;
+    background: #fff;
+    border: 1px solid rgba(43, 42, 38, 0.08);
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-sm);
+  }
+  .testimonio__cita {
+    font-family: var(--font-titulos);
+    font-size: 1.15rem;
+    line-height: 1.4;
+    color: var(--text);
+  }
+  .testimonio__autor {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0 0;
+  }
+  .testimonio__nombre { font-weight: 500; }
+  .testimonio__rol { font-size: 0.85rem; color: var(--text-tenue); }
+  .testimonios__pendiente {
+    text-align: center;
+    color: var(--text-secundario);
+    font-size: 1.1rem;
+  }
+
+  /* --------------------------- COMUNIDAD --------------------------- */
+  .comunidad {
+    position: relative;
+    background: var(--color-tinta);
+    color: #fff;
+    overflow: hidden;
+    padding-block: clamp(3.5rem, 8vw, 5.5rem);
+    margin-top: var(--espacio-seccion);
+  }
+  .comunidad__inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 640px;
+  }
+  .comunidad__titulo { color: #fff; }
+  .comunidad__texto {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.05rem;
+    margin-bottom: 1.8rem;
+  }
+  .comunidad__emojis { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+  .comunidad__emoji {
+    position: absolute;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    opacity: 0.5;
+    animation: flotar 7s ease-in-out infinite;
+  }
+  .comunidad__emoji--0 { top: 22%; left: 12%; }
+  .comunidad__emoji--1 { bottom: 24%; right: 14%; animation-delay: 1.5s; }
+
+  /* --------------------------- RESPONSIVE --------------------------- */
+  @media (max-width: 720px) {
+    .puertas { grid-template-columns: 1fr; }
+    .pilares__grid { grid-template-columns: 1fr; }
+    .sobre__inner { grid-template-columns: 1fr; text-align: center; }
+    .sobre__avatar { margin-inline: auto; }
+    .sobre__texto .boton { display: inline-flex; }
+  }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://apuntesdesebas.blog/sitemap-index.xml

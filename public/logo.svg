@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Apuntes de Sebas">
+  <!-- PLACEHOLDER fiel a la marca: birrete blanco sobre círculo naranja.
+       Reemplazar por el logo original del usuario (apple_2x.png) cuando lo entregue. -->
+  <circle cx="50" cy="50" r="50" fill="#F5A623"/>
+  <g fill="#FFFFFF">
+    <!-- Tabla del birrete -->
+    <path d="M50 30 L82 44 L50 58 L18 44 Z"/>
+    <!-- Cabeza / base -->
+    <path d="M32 51 L32 63 C32 69 41 73 50 73 C59 73 68 69 68 63 L68 51 L50 59 Z"/>
+    <!-- Cordón y borla -->
+    <path d="M82 44 L82 62" stroke="#FFFFFF" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <circle cx="82" cy="65" r="4"/>
+  </g>
+</svg>

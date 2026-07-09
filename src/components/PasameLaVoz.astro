@@ -1,0 +1,57 @@
+---
+import { GOOGLE_FORM_PASAME_LA_VOZ } from '../config';
+
+interface Props {
+  clase?: string;
+}
+const { clase = 'boton boton--primario' } = Astro.props;
+const configurado = GOOGLE_FORM_PASAME_LA_VOZ.trim().length > 0;
+---
+
+{
+  configurado ? (
+    <a class={clase} href={GOOGLE_FORM_PASAME_LA_VOZ} target="_blank" rel="noopener">
+      Pásame la voz 🙌
+    </a>
+  ) : (
+    <button
+      class={clase}
+      type="button"
+      data-pasame-la-voz
+      aria-describedby="pasame-la-voz-aviso"
+    >
+      Pásame la voz 🙌
+    </button>
+  )
+}
+
+{
+  !configurado && (
+    <p id="pasame-la-voz-aviso" class="pasame-aviso" hidden>
+      ¡Pronto! El formulario está en camino. Mientras tanto, escríbeme y coordinamos 😉
+    </p>
+  )
+}
+
+{
+  !configurado && (
+    <script>
+      // Placeholder amable: el Google Form aún no existe (ver src/config.ts).
+      // Cuando el usuario pegue el enlace, este botón se vuelve un <a> real.
+      document.querySelectorAll('[data-pasame-la-voz]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const aviso = document.getElementById('pasame-la-voz-aviso');
+          if (aviso) aviso.hidden = false;
+        });
+      });
+    </script>
+  )
+}
+
+<style>
+  .pasame-aviso {
+    margin-top: 0.85rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+</style>

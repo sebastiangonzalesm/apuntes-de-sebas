@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { obtenerProfesores } from '../../data/cursos';
+
+const profesores = obtenerProfesores();
+---
+
+<Base
+  titulo="Profesores"
+  descripcion="Encuentra los apuntes por profesor. Cada profe con todos sus cursos en un solo lugar."
+>
+  <section class="cabecera">
+    <div class="contenedor">
+      <p class="eyebrow">Otra forma de buscar</p>
+      <h1>Por profesor 🧑‍🏫</h1>
+      <p class="cabecera__sub">
+        ¿Te tocó un profe en particular? Aquí están todos sus cursos juntitos.
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      {profesores.length > 0 ? (
+        <ul class="profes-grid">
+          {profesores.map((p) => (
+            <li>
+              <a class="profe-card" href={`/profesores/${p.slug}`}>
+                <span class="profe-card__avatar" aria-hidden="true">
+                  {p.nombre.charAt(0)}
+                </span>
+                <span class="profe-card__cuerpo">
+                  <span class="profe-card__nombre">{p.nombre}</span>
+                  <span class="profe-card__conteo">
+                    {p.cursos.length} {p.cursos.length === 1 ? 'curso' : 'cursos'}
+                  </span>
+                </span>
+                <span class="profe-card__flecha" aria-hidden="true">
+                  <Icon name="arrow-right" size={20} />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="pendiente">
+          Aún estamos asignando profes a cada curso. ¡Muy pronto! 🙌
+        </p>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .cabecera {
+    background: var(--color-crema);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+  }
+  .cabecera__sub { color: var(--text-secundario); margin: 0; font-size: 1.05rem; }
+
+  .profes-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .profe-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem;
+    background: #fff;
+    border: 1px solid rgba(43, 42, 38, 0.08);
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-sm);
+    color: var(--text);
+    transition: transform var(--transicion), box-shadow var(--transicion), border-color var(--transicion);
+  }
+  .profe-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-md);
+    border-color: rgba(245, 166, 35, 0.5);
+    color: var(--text);
+  }
+  .profe-card__avatar {
+    flex: none;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-crema-tarjeta);
+    color: var(--color-ambar-oscuro);
+    font-family: var(--font-titulos);
+    font-size: 1.5rem;
+  }
+  .profe-card__cuerpo { display: flex; flex-direction: column; }
+  .profe-card__nombre { font-family: var(--font-titulos); font-size: 1.2rem; }
+  .profe-card__conteo { font-size: 0.85rem; color: var(--text-tenue); }
+  .profe-card__flecha { margin-left: auto; color: var(--text-tenue); }
+  .profe-card:hover .profe-card__flecha { color: var(--brand-acento); }
+
+  .pendiente { text-align: center; color: var(--text-secundario); font-size: 1.1rem; }
+</style>

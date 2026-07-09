@@ -1,0 +1,102 @@
+---
+import type { Curso } from '../data/cursos';
+import Icon from './Icon.astro';
+
+interface Props {
+  curso: Curso;
+}
+const { curso } = Astro.props;
+
+// Elige color de texto legible sobre el fondo de la tarjeta según su luminosidad.
+function textoSobre(colorHex: string): string {
+  const hex = colorHex.replace('#', '');
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  const luminancia = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  return luminancia > 0.6 ? '#4A2E08' : '#FFFFFF';
+}
+const colorTexto = textoSobre(curso.color);
+---
+
+<a
+  class="curso-card"
+  href={`/apuntes/${curso.slug}`}
+  data-titulo={curso.titulo.toLowerCase()}
+  data-area={curso.area}
+  data-profesor={curso.profesor}
+>
+  <span class="curso-card__icono" style={`background:${curso.color}; color:${colorTexto};`}>
+    <Icon name={curso.icono} size={30} />
+  </span>
+  <span class="curso-card__cuerpo">
+    <span class="curso-card__area">{curso.area}</span>
+    <span class="curso-card__titulo">{curso.titulo}</span>
+    <span class="curso-card__meta">{curso.ciclo} · {curso.universidad}</span>
+  </span>
+  <span class="curso-card__flecha" aria-hidden="true">
+    <Icon name="arrow-right" size={20} />
+  </span>
+</a>
+
+<style>
+  .curso-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem;
+    background: var(--color-blanco);
+    border: 1px solid rgba(43, 42, 38, 0.08);
+    border-radius: var(--radio-lg);
+    box-shadow: var(--sombra-sm);
+    color: var(--text);
+    transition: transform var(--transicion), box-shadow var(--transicion),
+      border-color var(--transicion);
+  }
+  .curso-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-md);
+    border-color: rgba(245, 166, 35, 0.5);
+    color: var(--text);
+  }
+  .curso-card__icono {
+    flex: none;
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radio-md);
+  }
+  .curso-card__cuerpo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+  .curso-card__area {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brand-acento);
+  }
+  .curso-card__titulo {
+    font-family: var(--font-titulos);
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+  .curso-card__meta {
+    font-size: 0.85rem;
+    color: var(--text-tenue);
+  }
+  .curso-card__flecha {
+    margin-left: auto;
+    flex: none;
+    color: var(--text-tenue);
+    transition: transform var(--transicion), color var(--transicion);
+  }
+  .curso-card:hover .curso-card__flecha {
+    color: var(--brand-acento);
+    transform: translateX(3px);
+  }
+</style>

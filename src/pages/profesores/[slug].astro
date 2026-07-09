@@ -1,0 +1,91 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CursoCard from '../../components/CursoCard.astro';
+import { obtenerProfesores } from '../../data/cursos';
+
+export function getStaticPaths() {
+  return obtenerProfesores().map((profesor) => ({
+    params: { slug: profesor.slug },
+    props: { profesor },
+  }));
+}
+
+const { profesor } = Astro.props;
+---
+
+<Base
+  titulo={profesor.nombre}
+  descripcion={`Todos los cursos con ${profesor.nombre}: sus apuntes reunidos en un solo lugar.`}
+>
+  <section class="cabecera">
+    <div class="contenedor">
+      <a class="cabecera__volver" href="/profesores">
+        <Icon name="arrow-left" size={18} /> Todos los profesores
+      </a>
+      <div class="cabecera__perfil">
+        <span class="cabecera__avatar" aria-hidden="true">{profesor.nombre.charAt(0)}</span>
+        <div>
+          <p class="eyebrow">Profesor</p>
+          <h1>{profesor.nombre}</h1>
+          <p class="cabecera__conteo">
+            {profesor.cursos.length} {profesor.cursos.length === 1 ? 'curso' : 'cursos'} en la biblioteca
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <ul class="cursos-grid">
+        {profesor.cursos.map((curso) => (
+          <li><CursoCard curso={curso} /></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .cabecera {
+    background: var(--color-crema);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+  }
+  .cabecera__volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .cabecera__perfil { display: flex; align-items: center; gap: 1.25rem; }
+  .cabecera__avatar {
+    flex: none;
+    width: 84px;
+    height: 84px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-crema-tarjeta);
+    color: var(--color-ambar-oscuro);
+    font-family: var(--font-titulos);
+    font-size: 2.4rem;
+  }
+  .cabecera h1 { margin: 0; }
+  .cabecera__conteo { color: var(--text-secundario); margin: 0.3rem 0 0; }
+
+  .cursos-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    .cursos-grid { grid-template-columns: 1fr; }
+  }
+</style>

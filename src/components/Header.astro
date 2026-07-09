@@ -1,0 +1,113 @@
+---
+import { SITE, NAV } from '../config';
+
+// Marca la sección activa comparando con la ruta actual.
+const rutaActual = Astro.url.pathname;
+const esActiva = (href: string) =>
+  href === '/' ? rutaActual === '/' : rutaActual.startsWith(href);
+---
+
+<header class="header">
+  <div class="contenedor header__inner">
+    <a href="/" class="header__marca" aria-label={`${SITE.nombre} — inicio`}>
+      <span class="header__logo" aria-hidden="true">
+        <!-- Logo definitivo del usuario: birrete blanco sobre círculo naranja.
+             Se reemplazará por /apple_2x.png cuando entregue el archivo.
+             Mientras tanto, un placeholder fiel a la marca. -->
+        <img src="/logo.svg" alt="" width="40" height="40" />
+      </span>
+      <span class="header__nombre">Apuntes de Sebas</span>
+    </a>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <ul>
+        {
+          NAV.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={['header__link', { 'header__link--activa': esActiva(item.href) }]}
+                aria-current={esActiva(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(43, 42, 38, 0.06);
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 68px;
+  }
+  .header__marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--text);
+  }
+  .header__marca:hover {
+    color: var(--text);
+  }
+  .header__logo {
+    display: inline-flex;
+  }
+  .header__logo img {
+    border-radius: 50%;
+  }
+  .header__nombre {
+    font-family: var(--font-titulos);
+    font-weight: 500;
+    font-size: 1.15rem;
+  }
+  .header__nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .header__link {
+    display: inline-block;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radio-pildora);
+    color: var(--text-secundario);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background var(--transicion), color var(--transicion);
+  }
+  .header__link:hover {
+    background: var(--color-crema);
+    color: var(--text);
+  }
+  .header__link--activa {
+    color: var(--color-ambar-oscuro);
+    background: var(--color-crema-tarjeta);
+  }
+
+  @media (max-width: 560px) {
+    .header__nombre {
+      display: none;
+    }
+    .header__link {
+      padding: 0.5rem 0.65rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>

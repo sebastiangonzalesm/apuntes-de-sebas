@@ -1,0 +1,244 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import CursoCard from '../../components/CursoCard.astro';
+import { cursos, obtenerAreas, obtenerProfesores } from '../../data/cursos';
+
+const areas = obtenerAreas();
+const profesores = obtenerProfesores();
+const total = cursos.length;
+---
+
+<Base
+  titulo="Apuntes"
+  descripcion="La biblioteca completa de apuntes de Sebas: busca por curso, área o profesor y salta directo a la carpeta de Drive."
+>
+  <section class="cabecera-apuntes">
+    <div class="contenedor">
+      <p class="eyebrow">La biblioteca</p>
+      <h1>Todos los apuntes 📚</h1>
+      <p class="cabecera-apuntes__sub">
+        {total} cursos y contando. Busca sin perderte entre links (esta vez sí 😅).
+      </p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <!-- Buscador -->
+      <div class="buscador">
+        <label class="buscador__campo">
+          <span class="buscador__icono" aria-hidden="true">
+            <Icon name="search" size={20} />
+          </span>
+          <input
+            type="search"
+            id="buscador-cursos"
+            placeholder="Busca tu curso… soy mejor que Google 😎"
+            aria-label="Buscar cursos por nombre"
+            autocomplete="off"
+          />
+        </label>
+      </div>
+
+      <!-- Filtros por área -->
+      <div class="filtros" role="group" aria-label="Filtrar por área">
+        <button class="chip chip--activo" type="button" data-area="">Todas</button>
+        {areas.map((area) => (
+          <button class="chip" type="button" data-area={area}>{area}</button>
+        ))}
+      </div>
+
+      <!-- Filtro por profesor -->
+      <div class="filtros filtros--profesor">
+        <label class="filtros__label" for="filtro-profesor">Por profesor:</label>
+        <select id="filtro-profesor" class="select">
+          <option value="">Todos los profesores</option>
+          {profesores.map((p) => (
+            <option value={p.nombre}>{p.nombre}</option>
+          ))}
+        </select>
+        <a class="filtros__enlace" href="/profesores">
+          Ver vista por profesor <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+
+      <!-- Grid de cursos -->
+      <ul class="cursos-grid" id="cursos-grid">
+        {cursos.map((curso) => (
+          <li><CursoCard curso={curso} /></li>
+        ))}
+      </ul>
+
+      <p class="sin-resultados" id="sin-resultados" hidden>
+        No encontré ese curso 🙈 ¿Lo tienes tú? <a href="/#comunidad">Pásame la voz 🙌</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .cabecera-apuntes {
+    background: var(--color-crema);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+  }
+  .cabecera-apuntes__sub {
+    color: var(--text-secundario);
+    margin: 0;
+    font-size: 1.05rem;
+  }
+
+  .buscador {
+    max-width: 620px;
+    margin: 0 auto 1.5rem;
+  }
+  .buscador__campo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #fff;
+    border: 2px solid rgba(43, 42, 38, 0.1);
+    border-radius: var(--radio-pildora);
+    padding: 0.3rem 1.2rem;
+    box-shadow: var(--sombra-sm);
+    transition: border-color var(--transicion), box-shadow var(--transicion);
+  }
+  .buscador__campo:focus-within {
+    border-color: var(--brand);
+    box-shadow: var(--sombra-md);
+  }
+  .buscador__icono { color: var(--text-tenue); display: inline-flex; }
+  .buscador input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--font-cuerpo);
+    font-size: 1.05rem;
+    padding: 0.7rem 0;
+    color: var(--text);
+  }
+
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .chip {
+    font-family: var(--font-cuerpo);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radio-pildora);
+    border: 1px solid rgba(43, 42, 38, 0.12);
+    background: #fff;
+    color: var(--text-secundario);
+    cursor: pointer;
+    transition: all var(--transicion);
+  }
+  .chip:hover { border-color: var(--brand); color: var(--text); }
+  .chip--activo {
+    background: var(--color-naranja);
+    border-color: var(--color-naranja);
+    color: var(--color-ambar-oscuro);
+  }
+
+  .filtros--profesor {
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .filtros__label { font-size: 0.9rem; color: var(--text-secundario); }
+  .select {
+    font-family: var(--font-cuerpo);
+    font-size: 0.9rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radio-pildora);
+    border: 1px solid rgba(43, 42, 38, 0.12);
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .filtros__enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .cursos-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+  .cursos-grid li[hidden] { display: none; }
+
+  .sin-resultados {
+    text-align: center;
+    color: var(--text-secundario);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    .cursos-grid { grid-template-columns: 1fr; }
+    .filtros--profesor { flex-direction: column; align-items: stretch; text-align: center; }
+  }
+</style>
+
+<script>
+  // Filtrado 100% client-side sobre las tarjetas ya generadas.
+  const input = document.getElementById('buscador-cursos') as HTMLInputElement | null;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'));
+  const selectProfesor = document.getElementById('filtro-profesor') as HTMLSelectElement | null;
+  const items = Array.from(document.querySelectorAll<HTMLLIElement>('#cursos-grid > li'));
+  const sinResultados = document.getElementById('sin-resultados');
+
+  let areaActiva = '';
+
+  function normalizar(texto: string): string {
+    return texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
+  function aplicarFiltros() {
+    const q = normalizar(input?.value.trim() ?? '');
+    const profesor = selectProfesor?.value ?? '';
+    let visibles = 0;
+
+    for (const li of items) {
+      const card = li.querySelector<HTMLElement>('.curso-card');
+      if (!card) continue;
+      const titulo = normalizar(card.dataset.titulo ?? '');
+      const area = card.dataset.area ?? '';
+      const prof = card.dataset.profesor ?? '';
+
+      const coincideTexto = q === '' || titulo.includes(q);
+      const coincideArea = areaActiva === '' || area === areaActiva;
+      const coincideProfesor = profesor === '' || prof === profesor;
+
+      const mostrar = coincideTexto && coincideArea && coincideProfesor;
+      li.hidden = !mostrar;
+      if (mostrar) visibles++;
+    }
+
+    if (sinResultados) sinResultados.hidden = visibles !== 0;
+  }
+
+  input?.addEventListener('input', aplicarFiltros);
+  selectProfesor?.addEventListener('change', aplicarFiltros);
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.remove('chip--activo'));
+      chip.classList.add('chip--activo');
+      areaActiva = chip.dataset.area ?? '';
+      aplicarFiltros();
+    });
+  });
+</script>

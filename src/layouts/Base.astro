@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+  imagen?: string;
+  tipo?: 'website' | 'article';
+}
+
+const {
+  titulo,
+  descripcion = SITE.descripcion,
+  imagen = '/og-default.png',
+  tipo = 'website',
+} = Astro.props;
+
+const tituloFinal = titulo ? `${titulo} · ${SITE.nombre}` : `${SITE.nombre} — Estudiar sin dramas`;
+const urlCanonica = new URL(Astro.url.pathname, Astro.site ?? SITE.dominio);
+const urlImagen = new URL(imagen, Astro.site ?? SITE.dominio);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+    <link rel="canonical" href={urlCanonica} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{tituloFinal}</title>
+    <meta name="description" content={descripcion} />
+    <meta name="theme-color" content="#F5A623" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={tipo} />
+    <meta property="og:site_name" content={SITE.nombre} />
+    <meta property="og:title" content={tituloFinal} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={urlCanonica} />
+    <meta property="og:image" content={urlImagen} />
+    <meta property="og:locale" content="es_PE" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={tituloFinal} />
+    <meta name="twitter:description" content={descripcion} />
+    <meta name="twitter:image" content={urlImagen} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <a class="saltar-al-contenido" href="#contenido">Saltar al contenido</a>
+    <Header />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

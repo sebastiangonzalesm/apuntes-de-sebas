@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PasameLaVoz from '../components/PasameLaVoz.astro';
+
+const intereses = [
+  { emoji: '⚖️', texto: 'LegalTech' },
+  { emoji: '🎨', texto: 'Legal Design' },
+  { emoji: '⚡', texto: 'Productividad' },
+  { emoji: '📚', texto: 'Aprender siempre' },
+];
+---
+
+<Base
+  titulo="Sobre mí"
+  descripcion="Soy Sebas: abogado por la Universidad del Pacífico, ahora en el MBA, y fundador de Apuntes de Sebas. Esta es la historia detrás del proyecto."
+>
+  <section class="hero-sobre">
+    <div class="contenedor hero-sobre__inner">
+      <div class="hero-sobre__avatar" aria-hidden="true">
+        <span class="hero-sobre__wave">👋</span>
+      </div>
+      <div>
+        <p class="eyebrow">Sobre mí</p>
+        <h1>¡Hola! Soy Sebas 👋</h1>
+        <p class="hero-sobre__lema">
+          Abogado de profesión, curioso de vocación y fundador de este rinconcito.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="contenedor prosa-sobre">
+      <p>
+        Soy <strong>abogado por la Universidad del Pacífico</strong> y, ahora mismo,
+        estoy <strong>sobreviviendo felizmente al MBA</strong>. En el camino me
+        enamoré de las cosas que unen el derecho con la tecnología y el diseño:
+        LegalTech, Legal Design y, sobre todo, la productividad bien entendida
+        (la que te da vida, no la que te la quita).
+      </p>
+
+      <p>
+        Fundé <strong>Apuntes de Sebas en 2018</strong> por una razón muy simple:
+        odiaba ver a mis patas sufriendo por no encontrar buen material para
+        estudiar. Yo guardaba todo ordenadito y empecé a compartirlo. Lo que nació
+        como un favor entre amigos se convirtió en una pequeña biblioteca que
+        ayudó a un montón de estudiantes. Esto 🚀 es su relanzamiento.
+      </p>
+
+      <p>
+        Mi filosofía cabe en tres palabras: <strong>Conecta · Crea · Cambia</strong>.
+        Conecta con quienes saben, crea tu propio camino y cambia lo que no te
+        cuadra. Y si en el proceso puedo ahorrarte un par de malas noches antes de
+        un examen, misión cumplida 💛
+      </p>
+
+      <ul class="intereses">
+        {intereses.map((i) => (
+          <li class="intereses__item">
+            <span aria-hidden="true">{i.emoji}</span> {i.texto}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-sobre">
+    <div class="contenedor cta-sobre__inner">
+      <h2>¿Te sumas a esto? ❤️</h2>
+      <p>
+        Si tienes apuntes que rompen 🔥 o simplemente quieres saludar, pásame la voz.
+        Esto crece cuando lo construimos entre todos.
+      </p>
+      <PasameLaVoz clase="boton boton--primario" />
+      <p class="cta-sobre__links">
+        O explora la <a href="/apuntes">biblioteca de apuntes</a> y el
+        <a href="/consejos">blog de consejos</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero-sobre {
+    background: var(--color-crema);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+  }
+  .hero-sobre__inner {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 5vw, 3rem);
+  }
+  .hero-sobre__avatar {
+    flex: none;
+    width: clamp(110px, 18vw, 170px);
+    height: clamp(110px, 18vw, 170px);
+    display: grid;
+    place-items: center;
+    background: var(--color-crema-tarjeta);
+    border-radius: 50%;
+    box-shadow: var(--sombra-sm);
+  }
+  .hero-sobre__wave {
+    font-size: clamp(3rem, 7vw, 4rem);
+    animation: saludar 2.4s ease-in-out 1;
+    transform-origin: 70% 70%;
+  }
+  @keyframes saludar {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20%, 40% { transform: rotate(-8deg); }
+  }
+  .hero-sobre h1 { margin: 0.3rem 0; }
+  .hero-sobre__lema { color: var(--text-secundario); font-size: 1.1rem; margin: 0; }
+
+  .prosa-sobre {
+    max-width: 68ch;
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+  .prosa-sobre p { color: var(--color-tinta); }
+
+  .intereses {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 2rem 0 0;
+  }
+  .intereses__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.1rem;
+    background: var(--color-crema);
+    border-radius: var(--radio-pildora);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .cta-sobre {
+    background: var(--color-tinta);
+    color: #fff;
+    padding-block: clamp(3rem, 7vw, 4.5rem);
+  }
+  .cta-sobre__inner { max-width: 620px; text-align: center; }
+  .cta-sobre h2 { color: #fff; }
+  .cta-sobre p { color: rgba(255, 255, 255, 0.72); }
+  .cta-sobre__links { margin-top: 1.5rem; font-size: 0.95rem; }
+  .cta-sobre__links a { color: var(--color-naranja); text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .hero-sobre__inner { flex-direction: column; text-align: center; }
+  }
+</style>
