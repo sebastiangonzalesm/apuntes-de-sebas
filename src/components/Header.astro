@@ -11,10 +11,8 @@ const esActiva = (href: string) =>
   <div class="contenedor header__inner">
     <a href="/" class="header__marca" aria-label={`${SITE.nombre} — inicio`}>
       <span class="header__logo" aria-hidden="true">
-        <!-- Logo definitivo del usuario: birrete blanco sobre círculo naranja.
-             Se reemplazará por /apple_2x.png cuando entregue el archivo.
-             Mientras tanto, un placeholder fiel a la marca. -->
-        <img src="/logo.svg" alt="" width="40" height="40" />
+        <!-- Logo definitivo del usuario: birrete blanco sobre naranja (apple@2x). -->
+        <img src="/logo-192.png" alt="" width="40" height="40" />
       </span>
       <span class="header__nombre">Apuntes de Sebas</span>
     </a>
@@ -68,7 +66,7 @@ const esActiva = (href: string) =>
     display: inline-flex;
   }
   .header__logo img {
-    border-radius: 50%;
+    border-radius: 10px;
   }
   .header__nombre {
     font-family: var(--font-titulos);
