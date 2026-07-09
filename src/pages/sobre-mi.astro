@@ -2,13 +2,9 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import PasameLaVoz from '../components/PasameLaVoz.astro';
+import sobre from '../data/sobre.json';
 
-const intereses = [
-  { emoji: '⚖️', texto: 'LegalTech' },
-  { emoji: '🎨', texto: 'Legal Design' },
-  { emoji: '⚡', texto: 'Productividad' },
-  { emoji: '📚', texto: 'Aprender siempre' },
-];
+const intereses = sobre.intereses;
 ---
 
 <Base
@@ -22,38 +18,15 @@ const intereses = [
       </div>
       <div>
         <p class="eyebrow">Sobre mí</p>
-        <h1>¡Hola! Soy Sebas 👋</h1>
-        <p class="hero-sobre__lema">
-          Abogado de profesión, curioso de vocación y fundador de este rinconcito.
-        </p>
+        <h1>{sobre.heroTitulo}</h1>
+        <p class="hero-sobre__lema">{sobre.heroLema}</p>
       </div>
     </div>
   </section>
 
   <section class="seccion">
     <div class="contenedor prosa-sobre">
-      <p>
-        Soy <strong>abogado por la Universidad del Pacífico</strong> y, ahora mismo,
-        estoy <strong>sobreviviendo felizmente al MBA</strong>. En el camino me
-        enamoré de las cosas que unen el derecho con la tecnología y el diseño:
-        LegalTech, Legal Design y, sobre todo, la productividad bien entendida
-        (la que te da vida, no la que te la quita).
-      </p>
-
-      <p>
-        Fundé <strong>Apuntes de Sebas en 2018</strong> por una razón muy simple:
-        odiaba ver a mis patas sufriendo por no encontrar buen material para
-        estudiar. Yo guardaba todo ordenadito y empecé a compartirlo. Lo que nació
-        como un favor entre amigos se convirtió en una pequeña biblioteca que
-        ayudó a un montón de estudiantes. Esto 🚀 es su relanzamiento.
-      </p>
-
-      <p>
-        Mi filosofía cabe en tres palabras: <strong>Conecta · Crea · Cambia</strong>.
-        Conecta con quienes saben, crea tu propio camino y cambia lo que no te
-        cuadra. Y si en el proceso puedo ahorrarte un par de malas noches antes de
-        un examen, misión cumplida 💛
-      </p>
+      {sobre.parrafos.map((parrafo) => (<p>{parrafo}</p>))}
 
       <ul class="intereses">
         {intereses.map((i) => (
@@ -67,11 +40,8 @@ const intereses = [
 
   <section class="cta-sobre">
     <div class="contenedor cta-sobre__inner">
-      <h2>¿Te sumas a esto? ❤️</h2>
-      <p>
-        Si tienes apuntes que rompen 🔥 o simplemente quieres saludar, pásame la voz.
-        Esto crece cuando lo construimos entre todos.
-      </p>
+      <h2>{sobre.ctaTitulo}</h2>
+      <p>{sobre.ctaTexto}</p>
       <PasameLaVoz clase="boton boton--primario" />
       <p class="cta-sobre__links">
         O explora la <a href="/apuntes">biblioteca de apuntes</a> y el

@@ -1,9 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
-import { cursos, aSlug } from '../../data/cursos';
+import { aSlug } from '../../lib/cursos';
+import { cargarCursos } from '../../lib/loadCursos';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const cursos = await cargarCursos();
   return cursos.map((curso) => ({
     params: { slug: curso.slug },
     props: { curso },

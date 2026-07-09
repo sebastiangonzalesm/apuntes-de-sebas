@@ -2,10 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import CursoCard from '../../components/CursoCard.astro';
-import { cursos, obtenerAreas, obtenerProfesores } from '../../data/cursos';
+import { obtenerAreas, obtenerProfesores } from '../../lib/cursos';
+import { cargarCursos } from '../../lib/loadCursos';
 
-const areas = obtenerAreas();
-const profesores = obtenerProfesores();
+const cursos = await cargarCursos();
+const areas = obtenerAreas(cursos);
+const profesores = obtenerProfesores(cursos);
 const total = cursos.length;
 ---
 

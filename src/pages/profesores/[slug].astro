@@ -2,10 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import CursoCard from '../../components/CursoCard.astro';
-import { obtenerProfesores } from '../../data/cursos';
+import { obtenerProfesores } from '../../lib/cursos';
+import { cargarCursos } from '../../lib/loadCursos';
 
-export function getStaticPaths() {
-  return obtenerProfesores().map((profesor) => ({
+export async function getStaticPaths() {
+  const profesores = obtenerProfesores(await cargarCursos());
+  return profesores.map((profesor) => ({
     params: { slug: profesor.slug },
     props: { profesor },
   }));

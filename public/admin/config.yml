@@ -1,0 +1,225 @@
+# ============================================================================
+#  Configuración del panel de administración (Decap CMS)
+#  Edita cursos, posts, testimonios y textos desde formularios.
+# ============================================================================
+
+backend:
+  name: github
+  repo: sebastiangonzalesm/apuntes-de-sebas
+  branch: main
+  # El login se resuelve con las Cloudflare Pages Functions del propio sitio
+  # (/oauth y /callback). base_url debe ser el dominio donde abres /admin.
+  # Cuando conectes apuntesdesebas.blog, cambia base_url a https://apuntesdesebas.blog
+  base_url: https://apuntes-de-sebas.pages.dev
+  auth_endpoint: /oauth
+
+# Permite probar el panel en local con `npx decap-server` (solo en localhost).
+local_backend: true
+
+# Carpeta para imágenes que subas desde el panel.
+media_folder: public/uploads
+public_folder: /uploads
+
+site_url: https://apuntes-de-sebas.pages.dev
+display_url: https://apuntes-de-sebas.pages.dev
+
+collections:
+  # ----------------------------- CURSOS -----------------------------
+  - name: cursos
+    label: Cursos
+    label_singular: Curso
+    description: La biblioteca de apuntes. Cada curso genera su propia página.
+    folder: src/content/cursos
+    extension: json
+    format: json
+    create: true
+    slug: '{{fields.titulo | slugify}}'
+    identifier_field: titulo
+    summary: '{{titulo}} · {{area}}'
+    fields:
+      - { name: titulo, label: Título del curso, widget: string }
+      - name: area
+        label: Área
+        widget: string
+        hint: 'Ej: Derecho, Administración, Finanzas, Estrategia…'
+      - name: profesor
+        label: Profesor
+        widget: string
+        required: false
+        default: Por confirmar
+        hint: 'Deja "Por confirmar" si aún no lo sabes.'
+      - { name: ciclo, label: Ciclo, widget: string, required: false, hint: 'Ej: 2015-1' }
+      - name: universidad
+        label: Universidad
+        widget: string
+        required: false
+        default: Universidad del Pacífico
+      - name: tips
+        label: Tips para sobrevivir el curso
+        widget: list
+        required: false
+        summary: '{{fields.tip}}'
+        field: { name: tip, label: Tip, widget: string }
+      - name: icono
+        label: Ícono de la tarjeta
+        widget: select
+        default: book
+        options:
+          - scale
+          - gavel
+          - briefcase
+          - coin
+          - chart-line
+          - chart-pie
+          - building
+          - bulb
+          - book
+          - book-2
+          - world
+          - microphone
+          - users
+          - math
+          - writing
+          - target
+      - name: color
+        label: Color de la tarjeta
+        widget: select
+        default: '#F5A623'
+        options:
+          - { label: Naranja, value: '#F5A623' }
+          - { label: Ámbar, value: '#D97706' }
+          - { label: Tinta (oscuro), value: '#2B2A26' }
+      - name: drive
+        label: Enlace de Google Drive
+        widget: string
+        required: false
+        hint: Pega el link de la carpeta de Drive con los apuntes.
+
+  # ---------------------------- CONSEJOS ----------------------------
+  - name: consejos
+    label: Consejos (blog)
+    label_singular: Consejo
+    description: Los posts del blog.
+    folder: src/content/consejos
+    extension: md
+    format: frontmatter
+    create: true
+    slug: '{{fields.titulo | slugify}}'
+    identifier_field: titulo
+    fields:
+      - { name: titulo, label: Título, widget: string }
+      - name: fecha
+        label: Fecha
+        widget: datetime
+        format: 'YYYY-MM-DD'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        picker_utc: true
+      - name: categoria
+        label: Categoría
+        widget: select
+        options:
+          - productividad
+          - métodos de estudio
+          - oratoria
+          - liderazgo
+          - desarrollo personal
+          - libros
+      - { name: resumen, label: Resumen (aparece en la tarjeta), widget: text }
+      - { name: emoji, label: Emoji del post, widget: string, default: '✨' }
+      - { name: imagen, label: Imagen (opcional), widget: image, required: false }
+      - { name: borrador, label: ¿Borrador? (no se publica), widget: boolean, default: false }
+      - { name: body, label: Contenido, widget: markdown }
+
+  # --------------------------- TESTIMONIOS --------------------------
+  - name: testimonios
+    label: Testimonios
+    label_singular: Testimonio
+    description: Personas reales. Si la cita está vacía, no se publica.
+    folder: src/content/testimonios
+    extension: json
+    format: json
+    create: true
+    slug: '{{fields.nombre | slugify}}'
+    identifier_field: nombre
+    summary: '{{nombre}}'
+    fields:
+      - { name: nombre, label: Nombre, widget: string }
+      - { name: rol, label: Rol / descripción, widget: string }
+      - { name: orden, label: Orden de aparición, widget: number, default: 99, value_type: int }
+      - name: cita
+        label: Testimonio (texto real)
+        widget: text
+        required: false
+        hint: Pega aquí las palabras textuales. Si lo dejas vacío, no se publica.
+
+  # ------------------------- TEXTOS DEL SITIO -----------------------
+  - name: textos
+    label: Textos del sitio
+    description: Los textos fijos de las páginas y los ajustes.
+    files:
+      - name: home
+        label: Página de inicio
+        file: src/data/home.json
+        fields:
+          - { name: heroEyebrow, label: 'Hero — línea superior', widget: string }
+          - { name: heroTitulo, label: 'Hero — título', widget: string }
+          - { name: heroSubtitulo, label: 'Hero — subtítulo', widget: text }
+          - { name: puertaApuntesTitulo, label: 'Puerta Apuntes — título', widget: string }
+          - { name: puertaApuntesTexto, label: 'Puerta Apuntes — texto', widget: text }
+          - { name: puertaApuntesCta, label: 'Puerta Apuntes — botón', widget: string }
+          - { name: puertaConsejosTitulo, label: 'Puerta Consejos — título', widget: string }
+          - { name: puertaConsejosTexto, label: 'Puerta Consejos — texto', widget: text }
+          - { name: puertaConsejosCta, label: 'Puerta Consejos — botón', widget: string }
+          - { name: pilaresTitulo, label: 'Pilares — título de sección', widget: string }
+          - { name: pilaresSub, label: 'Pilares — subtítulo', widget: string }
+          - name: pilares
+            label: Pilares (los 3)
+            widget: list
+            summary: '{{fields.emoji}} {{fields.titulo}}'
+            fields:
+              - { name: emoji, label: Emoji, widget: string }
+              - { name: titulo, label: Título, widget: string }
+              - { name: texto, label: Texto, widget: text }
+          - { name: sobreTitulo, label: 'Sobre mí (inicio) — título', widget: string }
+          - name: sobreParrafos
+            label: 'Sobre mí (inicio) — párrafos'
+            widget: list
+            field: { name: parrafo, label: Párrafo, widget: text }
+          - { name: testimoniosTitulo, label: 'Testimonios — título', widget: string }
+          - { name: testimoniosSub, label: 'Testimonios — subtítulo', widget: string }
+          - { name: testimoniosPendiente, label: 'Testimonios — texto si no hay ninguno', widget: text }
+          - { name: comunidadTitulo, label: 'Comunidad — título', widget: string }
+          - { name: comunidadTexto, label: 'Comunidad — texto', widget: text }
+      - name: sobre
+        label: Página "Sobre mí"
+        file: src/data/sobre.json
+        fields:
+          - { name: heroTitulo, label: Título, widget: string }
+          - { name: heroLema, label: Lema, widget: text }
+          - name: parrafos
+            label: Párrafos
+            widget: list
+            field: { name: parrafo, label: Párrafo, widget: text }
+          - name: intereses
+            label: Intereses (píldoras)
+            widget: list
+            summary: '{{fields.emoji}} {{fields.texto}}'
+            fields:
+              - { name: emoji, label: Emoji, widget: string }
+              - { name: texto, label: Texto, widget: string }
+          - { name: ctaTitulo, label: 'Llamado final — título', widget: string }
+          - { name: ctaTexto, label: 'Llamado final — texto', widget: text }
+      - name: ajustes
+        label: Ajustes (formulario y contacto)
+        file: src/data/ajustes.json
+        fields:
+          - { name: descripcion, label: Descripción del sitio (para buscadores), widget: text }
+          - name: googleForm
+            label: Enlace del Google Form ("Pásame la voz")
+            widget: string
+            required: false
+            hint: Pega aquí el enlace de tu formulario de Google. Si está vacío, el botón muestra un aviso.
+          - { name: email, label: Correo de contacto, widget: string, required: false }
+          - { name: instagram, label: Instagram (URL), widget: string, required: false }
+          - { name: linkedin, label: LinkedIn (URL), widget: string, required: false }

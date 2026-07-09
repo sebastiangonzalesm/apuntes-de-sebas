@@ -1,0 +1,15 @@
+{
+  "titulo": "Estrategia Empresarial",
+  "area": "Estrategia",
+  "profesor": "Por confirmar",
+  "ciclo": "2024-1",
+  "universidad": "MBA",
+  "tips": [
+    "Los frameworks (Porter, VRIO) son lentes, no recetas: aplícalos a casos reales.",
+    "Lee los casos dos veces: la primera para entender, la segunda para decidir.",
+    "En clase, opina; participar es parte de la nota y del aprendizaje."
+  ],
+  "icono": "target",
+  "color": "#D97706",
+  "drive": "https://drive.google.com/drive/folders/PLACEHOLDER"
+}

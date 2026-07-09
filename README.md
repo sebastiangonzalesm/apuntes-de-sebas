@@ -25,32 +25,33 @@ Requiere Node 18+.
 
 ### Agregar un curso
 
-Toda la biblioteca sale de **un solo archivo**: `src/data/cursos.ts`.
-Copia un objeto, cambia los datos y pégalo en el arreglo `cursos`. El sitio genera
-solo el listado de `/apuntes`, la página del curso y la vista del profesor.
+**La forma fácil:** desde el panel `/admin` (ver más abajo), con formularios.
 
-```ts
+**Por debajo**, cada curso es un archivo JSON en `src/content/cursos/*.json`.
+El nombre del archivo es el slug de la URL. El sitio genera solo el listado de
+`/apuntes`, la página del curso y la vista del profesor.
+
+```json
 {
-  slug: 'derecho-civil-1',        // único, va en la URL
-  titulo: 'Derecho Civil I',
-  area: 'Derecho',                // Derecho, Administración, Finanzas, Estrategia…
-  profesor: 'Nombre del Profesor',
-  ciclo: '2015-1',
-  universidad: 'Universidad del Pacífico',
-  tips: ['Tip 1', 'Tip 2', 'Tip 3'],
-  icono: 'scale',                 // ver íconos disponibles en src/components/Icon.astro
-  color: '#F5A623',               // fondo de la tarjeta
-  drive: 'https://drive.google.com/drive/folders/...',
+  "titulo": "Derecho Civil I",
+  "area": "Derecho",
+  "profesor": "Nombre del Profesor",
+  "ciclo": "2015-1",
+  "universidad": "Universidad del Pacífico",
+  "tips": ["Tip 1", "Tip 2", "Tip 3"],
+  "icono": "scale",
+  "color": "#F5A623",
+  "drive": "https://drive.google.com/drive/folders/..."
 }
 ```
 
 > **Regla de oro:** nunca se escribe un link de Drive a mano en una plantilla.
-> Todo vive en `cursos.ts`.
+> Cada curso vive en su propio JSON (o se edita desde `/admin`).
 
 ### Escribir un consejo (post del blog)
 
-Crea un archivo `.md` en `src/content/consejos/`. El nombre del archivo es la URL.
-Frontmatter:
+Desde `/admin` o creando un `.md` en `src/content/consejos/`. El nombre del
+archivo es la URL. Frontmatter:
 
 ```md
 ---
@@ -67,22 +68,38 @@ Aquí va el contenido en Markdown.
 
 ---
 
-## ⚙️ Cosas configurables (sin tocar plantillas)
+## 🖥️ Panel de administración (Decap CMS)
 
-Todo en `src/config.ts`:
+Edita cursos, posts, testimonios y textos **con formularios**, sin tocar código,
+en `tusitio.com/admin`. Al publicar, guarda en GitHub y el sitio se reconstruye
+solo en 1–2 minutos.
 
-- **`GOOGLE_FORM_PASAME_LA_VOZ`** → enlace del Google Form "Pásame la voz 🙌".
-  Mientras esté vacío, el botón muestra un aviso amable en vez de romperse.
-- **`CONTACTO`** → email y redes del footer.
-- **`NAV`** → enlaces del menú.
+- **Panel:** `public/admin/index.html` + `public/admin/config.yml`.
+- **Login:** GitHub OAuth resuelto con Cloudflare Pages Functions (`functions/oauth.js`
+  y `functions/callback.js`).
+- **Requiere** (una sola vez): una *GitHub OAuth App* y dos variables secretas en
+  Cloudflare Pages: `OAUTH_GITHUB_CLIENT_ID` y `OAUTH_GITHUB_CLIENT_SECRET`.
+- Si conectas el dominio `apuntesdesebas.blog`, actualiza `base_url` en
+  `config.yml` y la *callback URL* de la OAuth App a ese dominio.
+
+---
+
+## ⚙️ Cosas configurables
+
+Textos y ajustes editables (desde `/admin` o a mano):
+
+- **`src/data/home.json`** → todos los textos de la portada.
+- **`src/data/sobre.json`** → la página "Sobre mí".
+- **`src/data/ajustes.json`** → Google Form, correo y redes.
+- **`src/content/testimonios/*.json`** → testimonios (sin cita = no se publica).
+- **`src/config.ts`** → `NAV` (menú) y datos fijos de marca.
 
 ### Pendientes del usuario (placeholders marcados en el código)
 
-- Logo real (`apple_2x.png`) → reemplazar `public/logo.svg` y `public/favicon.svg`.
 - Bitmoji de Sebas → hoy hay un 👋 de placeholder en Home y Sobre mí.
-- Enlace del Google Form → `src/config.ts`.
-- Texto real de los testimonios → `src/data/testimonios.ts` (nunca se inventan).
-- Links de Drive reales de los ~36 cursos → `src/data/cursos.ts`.
+- Enlace del Google Form → `src/data/ajustes.json` (o `/admin` → Ajustes).
+- Texto real de los testimonios → `/admin` → Testimonios (nunca se inventan).
+- Links de Drive reales de los ~36 cursos → `/admin` → Cursos.
 
 ---
 

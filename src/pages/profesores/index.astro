@@ -1,9 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
-import { obtenerProfesores } from '../../data/cursos';
+import { obtenerProfesores } from '../../lib/cursos';
+import { cargarCursos } from '../../lib/loadCursos';
 
-const profesores = obtenerProfesores();
+const profesores = obtenerProfesores(await cargarCursos());
 ---
 
 <Base

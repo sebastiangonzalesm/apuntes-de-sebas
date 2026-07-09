@@ -1,0 +1,15 @@
+{
+  "titulo": "Contabilidad General",
+  "area": "Administración",
+  "profesor": "Por confirmar",
+  "ciclo": "2016-2",
+  "universidad": "Universidad del Pacífico",
+  "tips": [
+    "La partida doble se entiende practicando, no memorizando.",
+    "Haz los ejercicios del día mismo; acumularlos es el drama clásico.",
+    "Un buen resumen de asientos vale oro antes del parcial."
+  ],
+  "icono": "coin",
+  "color": "#D97706",
+  "drive": "https://drive.google.com/drive/folders/PLACEHOLDER"
+}

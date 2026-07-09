@@ -3,7 +3,7 @@ import { glob } from 'astro/loaders';
 
 /**
  * Colección "consejos" — el blog. Cada post es un Markdown en src/content/consejos/.
- * Para escribir un post nuevo: crea un .md con el frontmatter de abajo. Listo.
+ * Se edita desde el panel /admin (o creando un .md a mano).
  */
 const consejos = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/consejos' }),
@@ -26,4 +26,39 @@ const consejos = defineCollection({
   }),
 });
 
-export const collections = { consejos };
+/**
+ * Colección "cursos" — EL CORAZÓN. Cada curso es un archivo JSON editable en
+ * src/content/cursos/*.json (desde el panel /admin). El nombre del archivo es el
+ * slug de la URL (/apuntes/[slug]). El sitio genera solo el listado, la página
+ * de cada curso y las vistas por profesor. Nunca se escribe un link a mano.
+ */
+const cursos = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/cursos' }),
+  schema: z.object({
+    titulo: z.string(),
+    area: z.string(),
+    profesor: z.string().default('Por confirmar'),
+    ciclo: z.string().default(''),
+    universidad: z.string().default(''),
+    tips: z.array(z.string()).default([]),
+    icono: z.string().default('book'),
+    color: z.string().default('#F5A623'),
+    drive: z.string().default(''),
+  }),
+});
+
+/**
+ * Colección "testimonios" — personas reales. El texto de la cita se edita desde
+ * el panel. Un testimonio sin `cita` no se publica (nunca se inventan citas).
+ */
+const testimonios = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/testimonios' }),
+  schema: z.object({
+    nombre: z.string(),
+    rol: z.string(),
+    orden: z.number().default(99),
+    cita: z.string().default(''),
+  }),
+});
+
+export const collections = { consejos, cursos, testimonios };

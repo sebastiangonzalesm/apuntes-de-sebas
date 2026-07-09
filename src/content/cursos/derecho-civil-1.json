@@ -1,0 +1,15 @@
+{
+  "titulo": "Derecho Civil I",
+  "area": "Derecho",
+  "profesor": "Profe de ejemplo",
+  "ciclo": "2015-1",
+  "universidad": "Universidad del Pacífico",
+  "tips": [
+    "Lee el Código antes de cada clase: media hora te ahorra horas después.",
+    "Los casos prácticos caen en el examen; no te saltes las separatas.",
+    "Arma un esquema de instituciones desde la semana 1, sin dramas."
+  ],
+  "icono": "scale",
+  "color": "#F5A623",
+  "drive": "https://drive.google.com/drive/folders/PLACEHOLDER"
+}

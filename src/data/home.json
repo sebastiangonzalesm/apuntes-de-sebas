@@ -1,0 +1,40 @@
+{
+  "heroEyebrow": "Conecta · Crea · Cambia",
+  "heroTitulo": "Todos mis apuntes, en un solo lugar ✨",
+  "heroSubtitulo": "Estudiar ya no tiene por qué ser un drama 🙌 Apuntes de clase + consejos = estudiante empoderad@.",
+  "puertaApuntesTitulo": "Apuntes",
+  "puertaApuntesTexto": "La biblioteca completa, curso por curso. Con sus links a Drive.",
+  "puertaApuntesCta": "Explorar la biblioteca",
+  "puertaConsejosTitulo": "Consejos",
+  "puertaConsejosTexto": "Todo lo que ojalá alguien me hubiera dicho antes. Sin acartonar.",
+  "puertaConsejosCta": "Leer el blog",
+  "pilaresTitulo": "Lo que nos hace únicos ✨",
+  "pilaresSub": "Un pata que te quiere ayudar, no una institución.",
+  "pilares": [
+    {
+      "emoji": "🗂️",
+      "titulo": "Todo ordenadito",
+      "texto": "Por curso y por profe, cero caos. Encuentras lo que buscas sin perderte entre links (esta vez sí 😅)."
+    },
+    {
+      "emoji": "🤝",
+      "titulo": "Comunidad chévere",
+      "texto": "Aprendemos compartiendo. Los mejores apuntes salen cuando nos pasamos la voz entre patas."
+    },
+    {
+      "emoji": "🛟",
+      "titulo": "Tu salvavidas",
+      "texto": "Cuando más lo necesitas: antes de sufrir en exámenes, ahí va a estar este rinconcito."
+    }
+  ],
+  "sobreTitulo": "¡Hola! Soy Sebas 👋",
+  "sobreParrafos": [
+    "Abogado por la Universidad del Pacífico y, ahora mismo, sobreviviendo felizmente al MBA. Me muevo entre LegalTech, Legal Design y productividad, y soy el fundador de Apuntes de Sebas 🚀",
+    "Empecé esto en 2018 porque odiaba ver a mis patas sufriendo por no encontrar buen material. Aquí junté todo lo que a mí me hubiera encantado tener: apuntes ordenados y consejos honestos."
+  ],
+  "testimoniosTitulo": "Por si no te convences 😤",
+  "testimoniosSub": "Lo que dicen quienes ya cayeron por aquí.",
+  "testimoniosPendiente": "Muy pronto, las palabras de quienes ya estudiaron sin dramas por aquí 💛",
+  "comunidadTitulo": "¿Tienes apuntes buenos? Compártelos ❤️",
+  "comunidadTexto": "Esto crece cuando nos pasamos la voz. Si tienes material que rompe 🔥, cuéntame por el formulario. Reviso todo antes de publicar para que la biblioteca siga siendo de calidad."
+}

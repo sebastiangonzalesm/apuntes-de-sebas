@@ -2,25 +2,16 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import PasameLaVoz from '../components/PasameLaVoz.astro';
-import { testimoniosPublicables } from '../data/testimonios';
+import { getCollection } from 'astro:content';
+import home from '../data/home.json';
 
-const pilares = [
-  {
-    emoji: '🗂️',
-    titulo: 'Todo ordenadito',
-    texto: 'Por curso y por profe, cero caos. Encuentras lo que buscas sin perderte entre links (esta vez sí 😅).',
-  },
-  {
-    emoji: '🤝',
-    titulo: 'Comunidad chévere',
-    texto: 'Aprendemos compartiendo. Los mejores apuntes salen cuando nos pasamos la voz entre patas.',
-  },
-  {
-    emoji: '🛟',
-    titulo: 'Tu salvavidas',
-    texto: 'Cuando más lo necesitas: antes de sufrir en exámenes, ahí va a estar este rinconcito.',
-  },
-];
+// Testimonios reales: solo se publican los que tienen texto (cita). Nunca se inventan.
+const testimoniosPublicables = (await getCollection('testimonios'))
+  .map((t) => t.data)
+  .filter((t) => t.cita.trim().length > 0)
+  .sort((a, b) => a.orden - b.orden);
+
+const pilares = home.pilares;
 
 // Emojis decorativos que flotan sutilmente en el hero.
 const emojisHero = ['✏️', '📚', '⭐', '🎓'];
@@ -36,34 +27,27 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
     </div>
 
     <div class="contenedor hero__inner">
-      <p class="hero__eyebrow">Conecta · Crea · Cambia</p>
-      <h1 class="hero__titulo">Todos mis apuntes, en un solo lugar ✨</h1>
-      <p class="hero__subtitulo">
-        Estudiar ya no tiene por qué ser un drama 🙌 Apuntes de clase
-        <strong> + </strong> consejos <strong> = </strong> estudiante empoderad@.
-      </p>
+      <p class="hero__eyebrow">{home.heroEyebrow}</p>
+      <h1 class="hero__titulo">{home.heroTitulo}</h1>
+      <p class="hero__subtitulo">{home.heroSubtitulo}</p>
 
       <!-- LAS DOS PUERTAS -->
       <div class="puertas">
         <a class="puerta puerta--apuntes" href="/apuntes">
           <span class="puerta__emoji" aria-hidden="true">📚</span>
-          <span class="puerta__titulo">Apuntes</span>
-          <span class="puerta__texto">
-            La biblioteca completa, curso por curso. Con sus links a Drive.
-          </span>
+          <span class="puerta__titulo">{home.puertaApuntesTitulo}</span>
+          <span class="puerta__texto">{home.puertaApuntesTexto}</span>
           <span class="puerta__cta">
-            Explorar la biblioteca <Icon name="arrow-right" size={18} />
+            {home.puertaApuntesCta} <Icon name="arrow-right" size={18} />
           </span>
         </a>
 
         <a class="puerta puerta--consejos" href="/consejos">
           <span class="puerta__emoji" aria-hidden="true">💡</span>
-          <span class="puerta__titulo">Consejos</span>
-          <span class="puerta__texto">
-            Todo lo que ojalá alguien me hubiera dicho antes. Sin acartonar.
-          </span>
+          <span class="puerta__titulo">{home.puertaConsejosTitulo}</span>
+          <span class="puerta__texto">{home.puertaConsejosTexto}</span>
           <span class="puerta__cta">
-            Leer el blog <Icon name="arrow-right" size={18} />
+            {home.puertaConsejosCta} <Icon name="arrow-right" size={18} />
           </span>
         </a>
       </div>
@@ -74,10 +58,8 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
   <section class="seccion pilares">
     <div class="contenedor">
       <header class="seccion-cabecera">
-        <h2>Lo que nos hace únicos ✨</h2>
-        <p class="seccion-cabecera__sub">
-          Un pata que te quiere ayudar, no una institución.
-        </p>
+        <h2>{home.pilaresTitulo}</h2>
+        <p class="seccion-cabecera__sub">{home.pilaresSub}</p>
       </header>
       <ul class="pilares__grid">
         {pilares.map((p) => (
@@ -100,17 +82,8 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
         <span class="sobre__wave">👋</span>
       </div>
       <div class="sobre__texto">
-        <h2>¡Hola! Soy Sebas 👋</h2>
-        <p>
-          Abogado por la Universidad del Pacífico y, ahora mismo,
-          sobreviviendo felizmente al MBA. Me muevo entre LegalTech, Legal Design
-          y productividad, y soy el fundador de Apuntes de Sebas 🚀
-        </p>
-        <p>
-          Empecé esto en 2018 porque odiaba ver a mis patas sufriendo por no
-          encontrar buen material. Aquí junté todo lo que a mí me hubiera
-          encantado tener: apuntes ordenados y consejos honestos.
-        </p>
+        <h2>{home.sobreTitulo}</h2>
+        {home.sobreParrafos.map((parrafo) => (<p>{parrafo}</p>))}
         <a class="boton boton--contorno" href="/sobre-mi">
           Conóceme mejor <Icon name="arrow-right" size={18} />
         </a>
@@ -122,8 +95,8 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
   <section class="seccion testimonios">
     <div class="contenedor">
       <header class="seccion-cabecera">
-        <h2>Por si no te convences 😤</h2>
-        <p class="seccion-cabecera__sub">Lo que dicen quienes ya cayeron por aquí.</p>
+        <h2>{home.testimoniosTitulo}</h2>
+        <p class="seccion-cabecera__sub">{home.testimoniosSub}</p>
       </header>
 
       {testimoniosPublicables.length > 0 ? (
@@ -140,11 +113,8 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
         </ul>
       ) : (
         <!-- Sin testimonios con texto real todavía. Nunca se inventan citas:
-             aparecerán aquí en cuanto el usuario pegue las palabras reales en
-             src/data/testimonios.ts. -->
-        <p class="testimonios__pendiente">
-          Muy pronto, las palabras de quienes ya estudiaron sin dramas por aquí 💛
-        </p>
+             aparecerán aquí en cuanto se pegue la cita real (panel /admin). -->
+        <p class="testimonios__pendiente">{home.testimoniosPendiente}</p>
       )}
     </div>
   </section>
@@ -156,12 +126,8 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
       <span class="comunidad__emoji comunidad__emoji--1">❤️</span>
     </div>
     <div class="contenedor comunidad__inner">
-      <h2 class="comunidad__titulo">¿Tienes apuntes buenos? Compártelos ❤️</h2>
-      <p class="comunidad__texto">
-        Esto crece cuando nos pasamos la voz. Si tienes material que rompe 🔥,
-        cuéntame por el formulario. Reviso todo antes de publicar para que la
-        biblioteca siga siendo de calidad.
-      </p>
+      <h2 class="comunidad__titulo">{home.comunidadTitulo}</h2>
+      <p class="comunidad__texto">{home.comunidadTexto}</p>
       <PasameLaVoz clase="boton boton--primario comunidad__boton" />
     </div>
   </section>
