@@ -33,6 +33,8 @@ const AREAS: Record<string, AreaEstilo> = {
   comunicacion: { icono: 'microphone', color: '#C2410C' },
   oratoria: { icono: 'microphone', color: '#C2410C' },
   'metodos cuantitativos': { icono: 'math', color: '#2B2A26' },
+  matematica: { icono: 'math', color: '#2B2A26' },
+  matematicas: { icono: 'math', color: '#2B2A26' },
 };
 
 function normalizar(texto: string): string {

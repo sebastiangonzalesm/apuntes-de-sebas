@@ -16,6 +16,11 @@ backend:
 # Permite probar el panel en local con `npx decap-server` (solo en localhost).
 local_backend: true
 
+# Los nombres de archivo (slugs de URL) sin tildes ni caracteres raros.
+slug:
+  encoding: ascii
+  clean_accents: true
+
 # Carpeta para imágenes que subas desde el panel.
 media_folder: public/uploads
 public_folder: /uploads
