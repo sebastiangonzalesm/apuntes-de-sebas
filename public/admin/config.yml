@@ -43,6 +43,11 @@ collections:
     summary: '{{titulo}} · {{area}}'
     fields:
       - { name: titulo, label: Título del curso, widget: string }
+      - name: descripcion
+        label: Descripción
+        widget: text
+        required: false
+        hint: 'De qué trata el curso, en 2-4 líneas. Aparece en la página del curso.'
       - name: area
         label: Área
         widget: string

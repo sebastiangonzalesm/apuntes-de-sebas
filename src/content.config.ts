@@ -40,10 +40,12 @@ const cursos = defineCollection({
     profesor: z.string().default('Por confirmar'),
     ciclo: z.string().default(''),
     universidad: z.string().default(''),
+    // Descripción corta (2-4 líneas): de qué trata el curso.
+    descripcion: z.string().nullish(),
     tips: z.array(z.string()).default([]),
     // Opcional: nombre de un ícono de Tabler. Vacío = se usa el ícono del área.
     // El color NO se guarda por curso: se deriva del área (ver src/lib/areas.ts).
-    icono: z.string().optional(),
+    icono: z.string().nullish(),
     drive: z.string().default(''),
   }),
 });

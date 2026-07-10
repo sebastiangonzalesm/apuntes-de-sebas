@@ -11,6 +11,7 @@ export interface Curso {
   profesor: string;
   ciclo: string;
   universidad: string;
+  descripcion?: string | null;
   tips: string[];
   icono: string;
   color: string;

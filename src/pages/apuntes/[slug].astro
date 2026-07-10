@@ -58,10 +58,19 @@ const colorTexto = lum > 0.6 ? '#4A2E08' : '#FFFFFF';
     </header>
 
     <div class="contenedor curso-cuerpo">
+      <div class="curso-principal">
+      <!-- De qué trata -->
+      {curso.descripcion && (
+        <section class="curso-descripcion">
+          <h2>De qué trata este curso 📘</h2>
+          <p>{curso.descripcion}</p>
+        </section>
+      )}
+
       <!-- Tips -->
       {curso.tips.length > 0 && (
         <section class="curso-tips">
-          <h2>Para sobrevivirlo felizmente 🛟</h2>
+          <h2>3 tips clave 🔑</h2>
           <ul>
             {curso.tips.map((tip) => (
               <li>
@@ -74,6 +83,7 @@ const colorTexto = lum > 0.6 ? '#4A2E08' : '#FFFFFF';
           </ul>
         </section>
       )}
+      </div>
 
       <!-- Acceso a Drive -->
       <aside class="curso-drive">
@@ -154,6 +164,14 @@ const colorTexto = lum > 0.6 ? '#4A2E08' : '#FFFFFF';
     gap: 2.5rem;
     padding-block: var(--espacio-seccion);
     align-items: start;
+  }
+  .curso-descripcion { margin-bottom: 2.2rem; }
+  .curso-descripcion h2 { margin-bottom: 0.6rem; }
+  .curso-descripcion p {
+    color: var(--text-secundario);
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin: 0;
   }
   .curso-tips h2 { margin-bottom: 1.2rem; }
   .curso-tips ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.9rem; }
