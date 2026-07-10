@@ -1,14 +1,14 @@
 {
-  "titulo": "Derecho Civil I",
+  "titulo": "Acto Jurídico",
   "area": "Derecho",
-  "descripcion": "Una introducción a las instituciones básicas del Derecho Civil: la persona, el acto jurídico y las bases del derecho de las obligaciones. La base sobre la que se construye casi todo lo demás en la carrera.",
-  "profesor": "Profe de ejemplo",
-  "ciclo": "2015-1",
+  "descripcion": "¿Qué es un acto jurídico? ¿Es lo mismo que un contrato? Y si voy a hacer compras, ¿Estoy contratando? ¿Si soy menor de edad puedo contratar?",
+  "profesor": "Cecilia O'Neill",
+  "ciclo": "2016-1",
   "universidad": "Universidad del Pacífico",
   "tips": [
-    "Lee el Código antes de cada clase: media hora te ahorra horas después.",
-    "Los casos prácticos caen en el examen; no te saltes las separatas.",
-    "Arma un esquema de instituciones desde la semana 1, sin dramas."
+    "Normalmente los controles son cada 2 semanas. Es decir, una semana sí, la otra no. Pero puede variar.",
+    "Participación vale mucho para la profe.",
+    "La interpretación de normas es la parte del curso que más debes prestar atención."
   ],
-  "drive": "https://drive.google.com/drive/folders/PLACEHOLDER"
+  "drive": "https://drive.google.com/drive/folders/0B9GJusvT-N-TT2MwUWdLSzNOdjQ?resourcekey=0-wBoaDLhr-l5fWI6OmTLSjA&usp=drive_link"
 }
