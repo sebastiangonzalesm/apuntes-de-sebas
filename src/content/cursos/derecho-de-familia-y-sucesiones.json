@@ -1,15 +1,15 @@
 {
   "ciclo": "2018-1",
-  "drive": "https://drive.google.com/drive/folders/111XcDMYdEMyybOk1O_a60tFGBGCnJPkq?usp=sharing",
-  "profesor": "Alex Plácido",
+  "drive": "https://drive.google.com/drive/folders/1tctQdAMo6nr4RwfOsflAF8QXU6Jy3lJo?usp=drive_link",
+  "profesor": "Carlos Zelada",
   "area": "Derecho",
-  "descripcion": "Es un curso civil y general que te servirá para contestar esas preguntas que, por ahí, un familiar te puede hacer.",
-  "icono": null,
+  "descripcion": "ONU, UE, FMI, BM, OEA ¿Te sabes estas siglas? ¿Las recuerdas del cole? Las relaciones de tu Estado con otros Estados impacta en cada uno de nosotros y en este curso descubrirás cómo.",
+  "icono": "world",
   "tips": [
-    "Agenda bien las fechas de cada control apenas lo anuncie el profesor.",
-    "Si estás saturado con otros controles, propón postergar algún control. Sin roche.",
-    "Los controles son de V y F y las prácticas grupales de casos que cuelga con antelación"
+    "Aprovecha los controles y el ensayo (tienen mucho %).",
+    "Un curso que demanda estudiar mucho.",
+    "Trata de relacionar casos con la teoría para que la recuerdes."
   ],
-  "titulo": "Derecho de Familia y Sucesiones",
+  "titulo": "Derecho Internacional Público",
   "universidad": "Universidad del Pacífico"
 }
