@@ -1,15 +1,9 @@
 {
+  "titulo": "Procesos Históricos",
+  "area": "Humanidades",
   "ciclo": "2016-2",
-  "drive": "https://drive.google.com/drive/folders/0B9GJusvT-N-TcGZDT3ZhbFpDYVE?resourcekey=0-ro-AF0UDLp37j7Jgtkz_Lw&usp=drive_link",
-  "profesor": "Leysser León",
-  "area": "Derecho",
-  "descripcion": "Es un curso bastante teórico, pero base de otros cursos. Obligaciones de dar, de hacer, de no hacer, obligaciones con prestaciones recíprocas, cesión de derechos, son algunos de los temas que verás en el curso.",
-  "icono": "link",
-  "tips": [
-    "Este curso es una base súper importante para los cursos que siguen en la carrera. ¡Aprovecha este curso!",
-    "Código Civil a la mano.",
-    "Si no entiendes las clases (como me pasó) recurre a fuentes como “Academia”, compendios de la biblioteca."
-  ],
-  "titulo": "Obligaciones del Derecho Civil",
-  "universidad": "Universidad del Pacífico"
+  "universidad": "Universidad del Pacifico",
+  "icono": "calendar",
+  "drive": "https://drive.google.com/drive/folders/0B9GJusvT-N-TcEJkUXdDalNPem8?resourcekey=0-BEa0ZEePAW7th3UtweuZqQ&usp=sharing",
+  "descripcion": "Este curso brinda un análisis crítico de los principales procesos económicos que han influido en la transformación del Perú y el mundo contemporáneo"
 }
