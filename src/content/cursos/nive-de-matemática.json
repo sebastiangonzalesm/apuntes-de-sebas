@@ -1,10 +1,15 @@
 {
-  "profesor": "Por confirmar",
-  "universidad": "",
-  "icono": "math",
+  "ciclo": "2015-0",
   "color": "#F5A623",
-  "titulo": "Nive de Matemática",
+  "drive": "https://drive.google.com/drive/folders/0B9GJusvT-N-TcXdCWS1nUjVnS0U?resourcekey=0-SCXWE2drqIt3VPu8F89DWQ&usp=sharing",
+  "profesor": "",
   "area": "Matemática",
-  "ciclo": "Ciclo 0",
-  "drive": "https://drive.google.com/drive/folders/0B9GJusvT-N-TcXdCWS1nUjVnS0U?resourcekey=0-SCXWE2drqIt3VPu8F89DWQ&usp=sharing"
+  "icono": "math",
+  "tips": [
+    "Aquí el secreto es practicar y practicar",
+    "Adelanta las clases",
+    "No tengas miedo a preguntar todo. Por algo estás invirtiendo en tu educación."
+  ],
+  "titulo": "Nivelación de Matemática",
+  "universidad": "Universidad del Pacífico"
 }
