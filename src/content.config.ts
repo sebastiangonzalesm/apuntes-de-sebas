@@ -41,8 +41,9 @@ const cursos = defineCollection({
     ciclo: z.string().default(''),
     universidad: z.string().default(''),
     tips: z.array(z.string()).default([]),
-    icono: z.string().default('book'),
-    color: z.string().default('#F5A623'),
+    // Opcional: nombre de un ícono de Tabler. Vacío = se usa el ícono del área.
+    // El color NO se guarda por curso: se deriva del área (ver src/lib/areas.ts).
+    icono: z.string().optional(),
     drive: z.string().default(''),
   }),
 });

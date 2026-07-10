@@ -1,6 +1,7 @@
 ---
 import type { Curso } from '../lib/cursos';
 import Icon from './Icon.astro';
+import { Icon as TablerIcon } from 'astro-icon/components';
 
 interface Props {
   curso: Curso;
@@ -27,7 +28,7 @@ const colorTexto = textoSobre(curso.color);
   data-profesor={curso.profesor}
 >
   <span class="curso-card__icono" style={`background:${curso.color}; color:${colorTexto};`}>
-    <Icon name={curso.icono} size={30} />
+    <TablerIcon name={`tabler:${curso.icono}`} class="curso-card__glyph" />
   </span>
   <span class="curso-card__cuerpo">
     <span class="curso-card__area">{curso.area}</span>
@@ -66,6 +67,10 @@ const colorTexto = textoSobre(curso.color);
     display: grid;
     place-items: center;
     border-radius: var(--radio-md);
+  }
+  .curso-card__glyph {
+    width: 30px;
+    height: 30px;
   }
   .curso-card__cuerpo {
     display: flex;

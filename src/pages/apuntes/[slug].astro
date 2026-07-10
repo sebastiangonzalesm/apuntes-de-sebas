@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
+import { Icon as TablerIcon } from 'astro-icon/components';
 import { aSlug } from '../../lib/cursos';
 import { cargarCursos } from '../../lib/loadCursos';
 
@@ -39,7 +40,7 @@ const colorTexto = lum > 0.6 ? '#4A2E08' : '#FFFFFF';
           <Icon name="arrow-left" size={18} /> Volver a la biblioteca
         </a>
         <span class="curso-hero__icono" aria-hidden="true">
-          <Icon name={curso.icono} size={44} />
+          <TablerIcon name={`tabler:${curso.icono}`} class="curso-hero__glyph" />
         </span>
         <p class="curso-hero__area">{curso.area}</p>
         <h1 class="curso-hero__titulo">{curso.titulo}</h1>
@@ -121,6 +122,10 @@ const colorTexto = lum > 0.6 ? '#4A2E08' : '#FFFFFF';
     border-radius: var(--radio-lg);
     background: rgba(255, 255, 255, 0.22);
     margin-bottom: 1rem;
+  }
+  .curso-hero__glyph {
+    width: 44px;
+    height: 44px;
   }
   .curso-hero__area {
     text-transform: uppercase;

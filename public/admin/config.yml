@@ -60,35 +60,177 @@ collections:
         required: false
         summary: '{{fields.tip}}'
         field: { name: tip, label: Tip, widget: string }
+      # Ícono OPCIONAL. Vacío = ícono automático del área. El buscador filtra
+      # al escribir. El color NO se elige aquí: se asigna solo según el área.
       - name: icono
-        label: Ícono de la tarjeta
+        label: Ícono del curso (opcional)
         widget: select
-        default: book
+        required: false
+        hint: 'Vacío = ícono automático del área. O elige uno temático (escribe para buscar; ej. home, car, world).'
         options:
           - scale
           - gavel
-          - briefcase
-          - coin
-          - chart-line
-          - chart-pie
-          - building
-          - bulb
+          - building-bank
+          - certificate
+          - license
+          - file-certificate
+          - file-text
+          - file-description
+          - files
+          - folder
           - book
-          - book-2
-          - world
-          - microphone
-          - users
-          - math
+          - books
+          - notebook
           - writing
+          - writing-sign
+          - shield
+          - shield-check
+          - shield-lock
+          - lock
+          - key
+          - fingerprint
+          - id
+          - id-badge-2
+          - user-shield
+          - contract
+          - clipboard-text
+          - users
+          - users-group
+          - user
+          - user-check
+          - friends
+          - home
+          - home-2
+          - heart
+          - heart-handshake
+          - hand-stop
+          - mood-smile
+          - building
+          - building-community
+          - building-estate
+          - building-skyscraper
+          - building-store
+          - building-factory
+          - building-warehouse
+          - world
+          - map-pin
+          - map
+          - plane
+          - ship
+          - sailboat
+          - car
+          - ambulance
+          - bus
+          - truck
+          - package
+          - box
+          - briefcase
+          - businessplan
+          - receipt
+          - receipt-tax
+          - receipt-2
+          - report-money
+          - wallet
+          - cash
+          - cash-banknote
+          - coin
+          - coins
+          - currency-dollar
+          - credit-card
+          - pig-money
+          - shopping-cart
+          - shopping-bag
+          - tag
+          - tags
+          - discount
+          - gift
+          - chart-line
+          - chart-bar
+          - chart-pie
+          - chart-dots
+          - chart-histogram
+          - chart-arrows-vertical
+          - chart-candle
+          - trending-up
+          - trending-down
           - target
-      - name: color
-        label: Color de la tarjeta
-        widget: select
-        default: '#F5A623'
-        options:
-          - { label: Naranja, value: '#F5A623' }
-          - { label: Ámbar, value: '#D97706' }
-          - { label: Tinta (oscuro), value: '#2B2A26' }
+          - target-arrow
+          - presentation
+          - presentation-analytics
+          - calculator
+          - math
+          - math-symbols
+          - percentage
+          - abacus
+          - bulb
+          - rocket
+          - trophy
+          - medal
+          - star
+          - flag
+          - flame
+          - bolt
+          - brain
+          - puzzle
+          - compass
+          - map-2
+          - route
+          - speakerphone
+          - microphone
+          - headphones
+          - music
+          - movie
+          - camera
+          - video
+          - palette
+          - brush
+          - ad
+          - mail
+          - message
+          - messages
+          - phone
+          - world-www
+          - link
+          - school
+          - backpack
+          - pencil
+          - ballpen
+          - ruler
+          - ruler-2
+          - notes
+          - note
+          - clipboard
+          - clipboard-list
+          - clipboard-check
+          - checklist
+          - list
+          - list-check
+          - calendar
+          - calendar-event
+          - clock
+          - hourglass
+          - atom
+          - atom-2
+          - flask
+          - microscope
+          - dna
+          - plant
+          - plant-2
+          - leaf
+          - device-laptop
+          - device-desktop
+          - device-mobile
+          - cpu
+          - code
+          - terminal
+          - database
+          - server
+          - network
+          - cloud
+          - wifi
+          - settings
+          - tools
+          - adjustments
       - name: drive
         label: Enlace de Google Drive
         widget: string

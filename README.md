@@ -39,14 +39,27 @@ El nombre del archivo es el slug de la URL. El sitio genera solo el listado de
   "ciclo": "2015-1",
   "universidad": "Universidad del Pacífico",
   "tips": ["Tip 1", "Tip 2", "Tip 3"],
-  "icono": "scale",
-  "color": "#F5A623",
+  "icono": "",
   "drive": "https://drive.google.com/drive/folders/..."
 }
 ```
 
 > **Regla de oro:** nunca se escribe un link de Drive a mano en una plantilla.
 > Cada curso vive en su propio JSON (o se edita desde `/admin`).
+
+### Íconos y colores (automáticos por área)
+
+- **Color:** siempre según el `area` del curso. Todos los cursos de un área
+  comparten color. El mapa área → color vive en `src/lib/areas.ts`.
+- **Ícono:** por defecto el del área (también en `src/lib/areas.ts`). Pero el
+  campo `icono` es **opcional y sobreescribible**: si eliges un ícono (un nombre
+  de [Tabler Icons](https://tabler.io/icons), ej. `home`, `car`, `world`), ese
+  manda; si lo dejas vacío, usa el del área.
+- El sitio tiene acceso a **toda la librería Tabler** (~6.4k íconos) vía
+  `astro-icon`; el panel ofrece un menú buscable con una selección curada.
+- Para agregar/cambiar un área o su estilo, edita `src/lib/areas.ts` (y, si
+  quieres que aparezca en el buscador del panel, agrega el ícono a la lista
+  `icono` en `public/admin/config.yml`).
 
 ### Escribir un consejo (post del blog)
 
