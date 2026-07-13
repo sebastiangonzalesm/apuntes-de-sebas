@@ -297,7 +297,13 @@ collections:
       - { name: emoji, label: Emoji del post, widget: string, default: '✨' }
       - { name: imagen, label: Imagen (opcional), widget: image, required: false }
       - { name: borrador, label: ¿Borrador? (no se publica), widget: boolean, default: false }
-      - { name: body, label: Contenido, widget: markdown }
+      # Editor de texto enriquecido (richtext). Reemplaza al viejo "markdown",
+      # que tenía un bug conocido al insertar enlaces. Incluye el botón de enlace
+      # y un modo "markdown" crudo por si acaso.
+      - name: body
+        label: Contenido
+        widget: richtext
+        modes: [rich_text, raw]
 
   # --------------------------- TESTIMONIOS --------------------------
   - name: testimonios
