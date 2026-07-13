@@ -54,20 +54,20 @@ collections:
         hint: 'El área define el color de la tarjeta y el ícono por defecto.'
         options:
           - Derecho
+          - Economía
           - Administración
           - Contabilidad
-          - Economía
           - Finanzas
+          - Humanidades
+          - Ciencias Sociales y Política
+          - Matemática
           - Estrategia
           - Marketing
-          - Operaciones
-          - Liderazgo
-          - Recursos Humanos
           - Tecnología
-          - Comunicación
-          - Oratoria
-          - Métodos cuantitativos
-          - Matemática
+          - Innovación
+          - Logística
+          - Supply Chain
+          - Management
       - name: profesor
         label: Profesor
         widget: string
