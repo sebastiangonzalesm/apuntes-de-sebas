@@ -23,7 +23,7 @@ const AREAS: Record<string, AreaEstilo> = {
   administracion: { icono: 'briefcase', color: '#D97706' },
   finanzas: { icono: 'chart-line', color: '#0F766E' },
   contabilidad: { icono: 'coin', color: '#B45309' },
-  economia: { icono: 'world', color: '#A16207' },
+  economia: { icono: 'chart-arrows-vertical', color: '#3949AB' },
   estrategia: { icono: 'target', color: '#9A3412' },
   marketing: { icono: 'chart-pie', color: '#BE3455' },
   operaciones: { icono: 'building', color: '#5B7A1E' },

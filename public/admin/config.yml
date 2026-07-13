@@ -50,8 +50,24 @@ collections:
         hint: 'De qué trata el curso, en 2-4 líneas. Aparece en la página del curso.'
       - name: area
         label: Área
-        widget: string
-        hint: 'Ej: Derecho, Administración, Finanzas, Estrategia…'
+        widget: select
+        hint: 'El área define el color de la tarjeta y el ícono por defecto.'
+        options:
+          - Derecho
+          - Administración
+          - Contabilidad
+          - Economía
+          - Finanzas
+          - Estrategia
+          - Marketing
+          - Operaciones
+          - Liderazgo
+          - Recursos Humanos
+          - Tecnología
+          - Comunicación
+          - Oratoria
+          - Métodos cuantitativos
+          - Matemática
       - name: profesor
         label: Profesor
         widget: string
