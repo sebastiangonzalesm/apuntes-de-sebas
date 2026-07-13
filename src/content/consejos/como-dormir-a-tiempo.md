@@ -18,15 +18,13 @@ En mis tres años de carrera he podido comprobar que leer de manera pasiva; es d
 
 Este sistema consiste en leer un libro o una lectura con la intención de obtener algo útil de él, aplicando ciertas estrategias, y así mejorar tu capacidad de retención. Dejarás de ser un zombie que lee un periódico y te convertirás en un estudiante activo. Con el fin de ser más claro e incentivar a que apliques este método, he resumido mi sistema en seis estrategias:
 
- 
-
 #### **PRIMERO: ¡Divide y vencerás!**
 
 Debes clasificar tus lecturas en **primarias y secundarias** por **orden de importancia**, ya sea porque se acerca un control de lectura o porque solo crees que un tema es más importante que el otro. Aprender a priorizar tus lecturas te permitirá manejar tu tiempo y sobre todo enfocarte en las lecturas correctas.
 
 Una vez elegida una lectura…
 
-***Siempre que** leas algún libro de texto, utiliza un lápiz o lapicero o cualquier tipo de puntero que siga contigo a lo largo de la lectura. De esa manera, tus ojos seguirán al lápiz y no saltarán a otras líneas. ¡Es un pequeño cambio pero lo notarás!*
+> **\*Siempre que** leas algún libro de texto, utiliza un lápiz o lapicero o cualquier tipo de puntero que siga contigo a lo largo de la lectura. De esa manera, tus ojos seguirán al lápiz y no saltarán a otras líneas. ¡Es un pequeño cambio pero lo notarás!*
 
 #### **SEGUNDO: ¡Sé un aguafiestas!**
 
@@ -40,38 +38,11 @@ Una vez elegida una lectura…
 
 Mientras lees, imagina cómo aplicar lo que lees en la vida real y ten en cuenta estos consejos:
 
-* *Lee al menos el párrafo completo o la columna completa antes de detenerte a tomar notas y resaltar*
-
-  . 
-
-  **Resaltar mientras lees**
-
-   es uno de los 
-
-  **errores más comunes**
-
-   a la hora de leer. Si cometes ese error estarás 
-
-  **interrumpiendo el análisis**
-
-   que realiza tu cerebro.
-* *Resalta una frase o dos que consideras más importantes dentro del párrafo o sección*
-
-  . Definiciones y fechas son la excepción a ello.
-* *En los márgenes*
-
-   de la lectura o del libro, 
-
-  *escribe 1 o 2 preguntas para cada párrafo leído*
-
-  . Debes elaborarlas de tal manera que 
-
-  **puedan ser respondidas con el propio párrafo**
-
-  . Asimismo, anota alguna pregunta, observación u opinión que desees comentar en clase.
-* *Si estás atorado en alguna línea por más de 5 minutos, léela en voz alta*
-
-  . Si luego de ello, sigues sin entender recurre a internet o pide ayuda a un profesor o amigo.
+* *Lee al menos el párrafo completo o la columna completa antes de detenerte a tomar notas y resaltar.*
+* **Resaltar mientras lees** es uno de los **errores más comunes** a la hora de leer. Si cometes ese error estarás **interrumpiendo el análisis** que realiza tu cerebro.
+* *Resalta una frase o dos que consideras más importantes dentro del párrafo o sección.* Definiciones y fechas son la excepción a ello.
+* *En los márgenes* de la lectura o del libro, *escribe 1 o 2 preguntas para cada párrafo leído*. Debes elaborarlas de tal manera que **puedan ser respondidas con el propio párrafo**. Asimismo, anota alguna pregunta, observación u opinión que desees comentar en clase.
+* *Si estás atorado en alguna línea por más de 5 minutos, léela en voz alta*. Si luego de ello, sigues sin entender recurre a internet o pide ayuda a un profesor o amigo.
 
 #### **QUINTO: Resumiendo lo leído**
 
@@ -83,4 +54,4 @@ Luego de terminar un capítulo o 10 páginas, escribe un resumen CON TUS PROPIAS
 
 Finalmente, recuerda que no hay un modelo perfecto. Cada persona es distinta y debe encontrar el que se adecue a ella. La clave es probar y seguir probando hasta hallar el sistema ideal. ¡Arriésgate a que no funcione, créeme que cuando encuentres tu sistema ideal sentirás que valió la pena arriesgarse!
 
-**Recuerda: Leer debe ser como conversar con un amigo que te reta intelectualmente, donde tú escuchas atentamente y luego das tus ideas con tus propias palabras (Thomas Frank, College info geek)**
+> **Recuerda: Leer debe ser como conversar con un amigo que te reta intelectualmente, donde tú escuchas atentamente y luego das tus ideas con tus propias palabras (Thomas Frank, College info geek)**
