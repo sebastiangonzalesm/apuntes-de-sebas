@@ -1,0 +1,14 @@
+{
+  "profesor": "S.F.W. van den Bosch",
+  "universidad": "Tilburg University",
+  "drive": "https://drive.google.com/drive/folders/1_kgN-IwUdt5wUTf6UkWgPrx2Htm53rgf?usp=drive_link",
+  "titulo": "Risk Management and Data Protection",
+  "descripcion": "Imagine that someone has all your data (name, age, likes, dislikes, passwords, pin codes, etc). Data that must be protected. This course provide a risk management approach to data protection.",
+  "area": "Derecho",
+  "tips": [
+    "Be present in class, taking notes.",
+    "Try to divide the work for the assignment and discuss about it before hand it in.",
+    "Print your AS class notes since the exam is open-book"
+  ],
+  "icono": "database"
+}
