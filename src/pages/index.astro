@@ -76,10 +76,15 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
   <!-- ========================= 3. SOBRE MÍ ========================= -->
   <section class="seccion sobre" id="sobre">
     <div class="contenedor sobre__inner">
-      <div class="sobre__avatar" aria-hidden="true">
-        <!-- PLACEHOLDER del Bitmoji del usuario. Reemplazar /sebas-bitmoji.png
-             cuando lo entregue. Mientras tanto, un saludo con actitud. -->
-        <span class="sobre__wave">👋</span>
+      <div class="sobre__avatar">
+        <img
+          class="sobre__foto"
+          src="/sebas-memoji.png"
+          width="512"
+          height="512"
+          alt="Memoji de Sebas levantando el pulgar"
+          loading="lazy"
+        />
       </div>
       <div class="sobre__texto">
         <h2>{home.sobreTitulo}</h2>
@@ -308,6 +313,13 @@ const emojisHero = ['✏️', '📚', '⭐', '🎓'];
     background: var(--color-crema-tarjeta);
     border-radius: 50%;
     box-shadow: var(--sombra-sm);
+  }
+  /* Memoji dentro del círculo, dejando un anillo crema alrededor. */
+  .sobre__foto {
+    width: 86%;
+    height: 86%;
+    object-fit: cover;
+    border-radius: 50%;
   }
   .sobre__wave {
     font-size: clamp(3rem, 8vw, 4.5rem);
