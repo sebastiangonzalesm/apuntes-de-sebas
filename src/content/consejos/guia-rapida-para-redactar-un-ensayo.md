@@ -1,58 +1,48 @@
 ---
 titulo: Guía rápida para redactar un ensayo
-fecha: 2024-05-20
+fecha: 2018-10-26
 categoria: métodos de estudio
-resumen: La hoja en blanco asusta a cualquiera. Aquí tienes una estructura simple para pasar de "no sé por dónde empezar" a un ensayo ordenado y con argumento.
+resumen: La hoja en blanco asusta a cualquiera. Aquí tienes una estructura
+  simple para pasar de "no sé por dónde empezar" a un ensayo ordenado y con
+  argumento.
 emoji: ✍️
+borrador: false
 ---
+Primero, si deseas mejorar el vocabulario de tus textos, la única forma es leyendo, leyendo y leyendo. Si lees solo un artículo diario (10min) de lo que más te guste (política, economía, gossip, tecnología, salud, viajes, etc) mejorarás exponencialmente tu vocabulario.
 
-Redactar un ensayo se siente imposible hasta que descubres que **casi todos siguen la misma estructura**. Una vez que la tienes en la cabeza, la hoja en blanco deja de dar miedo.
+El orden es vital a la hora de redactar. Podemos tener magníficas ideas en la cabeza, pero si no le damos un orden nadie podrá entenderlas.
 
-Esta es la versión sin vueltas de todo lo que ojalá me hubieran explicado antes.
+### **Aquí vienen mis consejos:**
 
-## Primero: ¿cuál es tu tesis?
+* **Investiga sobre lo que escribirás.-** Esta es la base para continuar. Para escribir cada uno de mis artículos debo investigar, leyendo otros artículos, investigaciones, practicarlo y finalmente, contarlo. Es imposible improvisar de un tema del que no se conoce nada.
+* **Entender la pregunta del ensayo.-** Comprender la pregunta es básico para comenzar a redactar. Si no lograste entender la pregunta en su totalidad, pregúntale al profesor que te explique mejor la pregunta, diciéndole: “Profesor, a qué se refiere con…”. De lo contrario, una buena estrategia es decirle al profesor lo que entiendes de la pregunta y preguntar por lo que no tienes claro. Puede ser algo como: Profesor, entiendo que la pregunta me pide… pero ¿A qué se refiere cuando dice…?. No te canses hasta entender al 100% la pregunta. No tengas miedo a preguntar.
 
-Antes de escribir una sola línea, responde en una frase: **¿qué quiero defender?**
+> OJO: Algunos ensayos no tienen una pregunta, sino una afirmación o la pregunta la puedes escoger tú. En esos casos, sé libre a centrar tu ensayo en una sola afirmación que te sea cómoda o en base al subtema que dominas más
 
-Tu tesis es una postura, no un tema. "El teletrabajo" es un tema. "El teletrabajo mejora la productividad cuando la empresa define objetivos claros" es una tesis. La diferencia es que la segunda **se puede discutir**, y eso es justo lo que un ensayo hace.
+### Planear lo que vas a escribir.- 
 
-## La estructura de siempre (porque funciona)
+Esta parte tiene dos etapas:
 
-### Introducción
+1. **Lluvia de ideas:** toma una hoja de borrador y un lapicero y comienza a escribir TODO lo que se te venga a la mente sobre el tema, sin presión.
+2. **Esquema organizado:** una vez que tengas muchas ideas, lee tus ideas y decide qué ideas van en cada sección de tu ensayo, siguiendo la estructura que presento a continuación.Un esquema es tu herramienta más fuerte en cualquier tipo de redacción porque te da orden.
 
-- Engancha con una idea, una pregunta o un dato.
-- Da el contexto mínimo para entender de qué hablas.
-- Cierra con tu tesis, clarita.
+### La estructura infalible es.-
 
-### Desarrollo (2–4 párrafos)
+#### **Introducción**
 
-Aquí vive tu argumento. Un truco que nunca falla, un **párrafo = una idea**:
+* Comenzar con una cita, una historia personal o una estadística. Esta forma de comenzar ayuda a enganchar al lector.
+* Describir o presentar el problema (la pregunta) que se va a resolver. ¿Qué problema se tiene? ¿Por qué estoy escribiendo?
+* Determinar una tesis. Esta es la respuesta a la pregunta, pero debes saber que tu tesis puede ser una al inicio y puedes concluir de forma distinta. Recuerda que debe responder al problema mediante una afirmación.
+* (Opcional) Mencionar la secuencia que seguirás en tu ensayo. Por ejemplo, “En ese sentido, analizaremos, en primer lugar,…”.
 
-1. Frase que abre la idea.
-2. Explicación o razonamiento.
-3. Evidencia, ejemplo o cita.
-4. Frase que conecta con la siguiente idea.
+#### **Cuerpo**
 
-No olvides el **contraargumento**: menciona la postura opuesta y explica por qué tu tesis se sostiene igual. Eso hace que tu ensayo se vea maduro, no ingenuo.
+* Argumentos a favor. Un argumento por párrafo, demostrando o justificando tus ideas.
+* (Opcional) Argumentos en contra. Si colocas argumentos en contra, debes refutarlos.
 
-### Conclusión
+#### **Conclusión**
 
-- Recuerda tu tesis con otras palabras (no la copies igual).
-- Cierra con una reflexión, una consecuencia o una pregunta que deje pensando.
+* Pregúntate en ese momento… ¿Qué aprendiste luego de escribir el ensayo? No es momento de añadir nuevos argumentos, sino decirle al lector qué aprendiste y a qué llegaste con tus argumentos. ¿Tu tesis se mantiene?.
+* Lee todo el ensayo por completo solo por 1 vez.- No tienes idea cómo ayuda leer una vez más el texto escrito (hasta en el trabajo). Solo así encontrarás errores y pasarás de un 15 a un 18
 
-## Escribe feo primero, edita después
-
-El error más común es querer escribir perfecto de una. **No.** Suelta un primer borrador aunque quede horrible; ya lo arreglas. Separar "escribir" de "corregir" es el secreto para no quedarte trabado.
-
-## Pásale el ojo antes de entregar
-
-Una lista rápida antes de dar por terminado:
-
-- ¿Se entiende mi tesis en la introducción?
-- ¿Cada párrafo defiende una sola idea?
-- ¿Usé conectores para que fluya (además, sin embargo, por lo tanto)?
-- ¿Leí el texto en voz alta? (Ahí saltan los errores solitos.)
-
-> Un buen ensayo no es el que usa palabras difíciles. Es el que se entiende y convence.
-
-Con esta estructura, lo difícil ya no es la página en blanco: es decidir qué quieres decir. Y eso, mi pata, es la parte divertida 😄
+> (Opcional) Algo que aprendí este ciclo es subrayar las ideas que justo responden a la pregunta del ensayo o a la idea que quiere el profesor. Así, facilitas el trabajo del profesor a la hora de corregir y a la vez demuestras que efectivamente has respondido a su pregunta.
