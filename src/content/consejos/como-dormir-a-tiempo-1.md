@@ -30,7 +30,7 @@ Según un estudio increíble hecho por the National Sleep Foundation en el 2015 
 
 **¿Qué es eso del ciclo del sueño?** A partir de que comenzamos a dormir se producen 5 ciclos de 90 minutos cada uno, nuestro cerebro pasa de un periodo llamado NREM (Non Rapid Eyed Movement) a otro llamado REM (Rapid Eyed Movement) hasta que despertamos. El primer periodo del ciclo, que se subdivide en cuatro, es donde nuestro cerebro llega al sueño profundo y donde se desarrolla la memoria, los conceptos que aprendes en el día se graban y tu cuerpo se recupera. En cambio, en el segundo periodo del ciclo se da lo que llamamos “soñar”, y es cuando la concentración y tu parte emocional se desarrollan.
 
-Para despertar en el momento correcto, programa una alarma al final de estos ciclos. Te recomiendo usar la página https://sleepopolis.com/calculators/sleep/
+Para despertar en el momento correcto, programa una alarma al final de estos ciclos. Te recomiendo usar la página <https://sleepopolis.com/calculators/sleep>/
 
 ## **YA PERO… ¿ A QUÉ HORA DEBO DORMIR?**
 
