@@ -30,7 +30,7 @@ Según un estudio increíble hecho por the National Sleep Foundation en el 2015 
 
 **¿Qué es eso del ciclo del sueño?** A partir de que comenzamos a dormir se producen 5 ciclos de 90 minutos cada uno, nuestro cerebro pasa de un periodo llamado NREM (Non Rapid Eyed Movement) a otro llamado REM (Rapid Eyed Movement) hasta que despertamos. El primer periodo del ciclo, que se subdivide en cuatro, es donde nuestro cerebro llega al sueño profundo y donde se desarrolla la memoria, los conceptos que aprendes en el día se graban y tu cuerpo se recupera. En cambio, en el segundo periodo del ciclo se da lo que llamamos “soñar”, y es cuando la concentración y tu parte emocional se desarrollan.
 
-Para despertar en el momento correcto, programa una alarma al final de estos ciclos. Te recomiendo usar la página **https://sleepopolis.com/calculators/sleep/**
+Para despertar en el momento correcto, programa una alarma al final de estos ciclos. Te recomiendo usar la página https://sleepopolis.com/calculators/sleep/
 
 ## **YA PERO… ¿ A QUÉ HORA DEBO DORMIR?**
 
@@ -47,11 +47,11 @@ Nuestra tablet, celular o laptop son aparatos que reducen la cantidad de melaton
 3. Si necesitas medidas más extremas, te recomiendo la extensión de Chrome “Stayfocused” que desactiva tu internet por cierto tiempo y no tienes manera de desactivarlo. Si no usas Chrome, Freedom hace lo mismo en otros navegadores.
 4. Cambia el color de pantalla de tus aparatos para que no emitan luz azul a partir de las 5/6pm. Aquí te dejo tutoriales para que puedas hacerlo tú mismo:
 
-### No nap, no siesta, no fiesta 🥳 
+### No nap, no siesta, no fiesta 🥳
 
 Si te cuesta dormir en la noche, mi recomendación es que mejor no tomes una siesta porque cada vez que dormimos tu cerebro elimina la adenosina (#quechawa?, sustancia que brinda el deseo por dormir) que ha sido generada por el cerebro durante todo el día y duermas como un bebé.
 
-### No consumamos cafeína muy cerca a nuestra hora de dormir ☕️. 
+### No consumamos cafeína muy cerca a nuestra hora de dormir ☕️.
 
 El café, bebidas energizantes o el chocolate negro ocultan la adenosina que generamos en el cerebro, entonces cuando el efecto de la cafeína desaparezca toda esta adenosina aparecerá de golpe en nuestro organismo y desconfigurará nuestro sueño. Consumir cafeína, sobre todo para quienes sufren de insomnio, puede tener un impacto negativo.
 
