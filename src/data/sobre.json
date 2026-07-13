@@ -1,16 +1,28 @@
 {
   "heroTitulo": "¡Hola! Soy Sebas 👋",
-  "heroLema": "Abogado de profesión, curioso de vocación y fundador de este rinconcito.",
+  "heroLema": "Abogado, empresario y aprendiz de por vida. Comparto ideas que conectan personas, impulsan la creatividad y generan cambio.",
   "parrafos": [
-    "Soy abogado por la Universidad del Pacífico y, ahora mismo, estoy sobreviviendo felizmente al MBA. En el camino me enamoré de las cosas que unen el derecho con la tecnología y el diseño: LegalTech, Legal Design y, sobre todo, la productividad bien entendida (la que te da vida, no la que te la quita).",
-    "Fundé Apuntes de Sebas en 2018 por una razón muy simple: odiaba ver a mis patas sufriendo por no encontrar buen material para estudiar. Yo guardaba todo ordenadito y empecé a compartirlo. Lo que nació como un favor entre amigos se convirtió en una pequeña biblioteca que ayudó a un montón de estudiantes. Esto 🚀 es su relanzamiento.",
-    "Mi filosofía cabe en tres palabras: Conecta · Crea · Cambia. Conecta con quienes saben, crea tu propio camino y cambia lo que no te cuadra. Y si en el proceso puedo ahorrarte un par de malas noches antes de un examen, misión cumplida 💛"
+    "Soy abogado por la Universidad del Pacífico y, ahora mismo, estoy llevando mi MBA. En el camino me enamoré de las cosas que unen el derecho con la tecnología y el diseño: LegalTech, Legal Design y, sobre todo, la productividad bien entendida.",
+    "Fundé Apuntes de Sebas en 2018 por una razón muy simple: odiaba ver a mis amigos sufriendo por no encontrar buen material para estudiar. Yo guardaba todo ordenadito y empecé a compartirlo. Lo que nació como un favor entre amigos se convirtió en una pequeña biblioteca que ayudó a un montón de estudiantes. Esto 🚀 es su relanzamiento.",
+    "Mi filosofía cabe en tres palabras: Conecta · Crea · Cambia. Porque las mejores ideas nacen cuando conectamos con otros, nos atrevemos a construir algo nuevo y tenemos el coraje de transformar lo que no funciona. Y si en el proceso puedo conectar contigo, misión cumplida 💛"
   ],
   "intereses": [
-    { "emoji": "⚖️", "texto": "LegalTech" },
-    { "emoji": "🎨", "texto": "Legal Design" },
-    { "emoji": "⚡", "texto": "Productividad" },
-    { "emoji": "📚", "texto": "Aprender siempre" }
+    {
+      "emoji": "🤖",
+      "texto": "Inteligencia Artificial"
+    },
+    {
+      "emoji": "🎨",
+      "texto": "Human Centered Design - Legal Design"
+    },
+    {
+      "emoji": "⚡",
+      "texto": "Productividad"
+    },
+    {
+      "emoji": "📚",
+      "texto": "Aprender siempre"
+    }
   ],
   "ctaTitulo": "¿Te sumas a esto? ❤️",
   "ctaTexto": "Si tienes apuntes que rompen 🔥 o simplemente quieres saludar, pásame la voz. Esto crece cuando lo construimos entre todos."
