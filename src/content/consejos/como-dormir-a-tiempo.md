@@ -1,11 +1,11 @@
 ---
-titulo: Cómo dormir a tiempo (y dejar de pelear con tu despertador)
+titulo: Cómo leer de forma eficiente
 fecha: 2017-08-01
-categoria: desarrollo personal
-resumen: "Dormir bien no es de flojos: es la palanca más subestimada para
-  estudiar mejor. Aquí, sin dramas, cómo volver a tener una hora de dormir
-  decente."
-emoji: 😴
+categoria: métodos de estudio
+resumen: Aprender a leer bien no es cuestión de leer más rápido, sino de leer
+  con intención. Descubre un método práctico para comprender mejor, recordar más
+  y aprovechar cada lectura sin sentir que estudias en piloto automático.
+emoji: 🤓
 borrador: false
 ---
 A qué estudiante no le ha pasado esta situación:
